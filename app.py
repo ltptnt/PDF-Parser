@@ -107,3 +107,5 @@ def template_1(pdf):
     new_doctor.set_patient(new_patient)
     return new_doctor
 
+doctor1 = template_1(pdf1)
+print(doctor1.get_name())
