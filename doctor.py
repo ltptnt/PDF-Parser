@@ -13,7 +13,7 @@ class Doctor:
         self.patient = Patient()
     
     def set_name(self, name) -> None:
-        self.name = name
+        self.full_name = name
 
     def set_community_pharmacy(self, community_pharmacy) -> None:
         self.community_pharmacist = community_pharmacy
@@ -42,18 +42,18 @@ class Doctor:
         self.reason_for_referral = reason_for_referral
 
     def set_pref_contact(self) -> None:
-        if self.contact_number is not None and self.email is not None:
+        if self.contact_number != "" and self.email != "":
             self.pref_contact = f"Phone: {self.contact_number} or Email: {self.email}"
-        elif self.contact_number is not None:
+        elif self.contact_number != "":
             self.pref_contact = self.contact_number
-        elif self.email is not None:
+        elif self.email != "":
             self.pref_contact = self.email
 
     def set_patient(self, patient) -> None:
         self.patient = patient
             
     def get_name(self) -> str | None:
-        return self.name
+        return self.full_name
         
     def get_community_pharmacist(self) -> str | None:
         return self.community_pharmacist
@@ -78,7 +78,7 @@ class Doctor:
     
     def get_pref_contact(self) -> str | None:
         # Return a string of the phone number and email address
-        return f"Phone: {self.contact_number} or Email: {self.email}"
+        return self.pref_contact
 
     def get_request_time(self) -> str | None:
         return self.request_time

@@ -9,8 +9,8 @@ class Patient:
         self.medi_number = None
         self.age = None
         self.current_conditions = None
+        self.medications = None
         self.phone_number = None
-        self.date = None
         self.dob_age = None
         self.community_pharmacist = None
         self.height = None
@@ -19,6 +19,7 @@ class Patient:
         self.creatine = None
         self.CrCl = None
         self.request_time = None
+        self.accredited_pharmacist = None
     
     def set_name(self, name) -> None:
         self.full_name = name
@@ -41,7 +42,7 @@ class Patient:
         self.phone_number = phone_number
         
     def set_date(self, date) -> None:
-        self.date = date
+        self.request_time = date
     
     def set_height(self, height) -> None:
         self.height = height
@@ -57,6 +58,16 @@ class Patient:
 
     def set_CrCl(self, CrCl) -> None:
         self.CrCl = CrCl
+
+    def set_accredited_pharmacist(self, accredited_pharmacist) -> None:
+        self.accredited_pharmacist = accredited_pharmacist
+
+    def set_medications(self, medications) -> None:
+        self.medications = medications
+
+    def get_medications(self) -> dict | None:
+        return self.medications
+    
 
     def get_height(self) -> str | None:
         return self.height
@@ -95,7 +106,7 @@ class Patient:
         return self.phone_number
     
     def get_date(self) -> date | None:
-        return self.date
+        return self.request_time
     
     def get_dob_age(self) -> str | None:
         return self.dob_age
@@ -105,6 +116,9 @@ class Patient:
     
     def set_community_pharmacist(self, community_pharmacist) -> None:
         self.community_pharmacist = community_pharmacist
+    
+    def get_accredited_pharmacist(self) -> str | None:
+        return self.accredited_pharmacist
     
     @staticmethod    
     def calculate_age(dob):

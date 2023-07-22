@@ -8,6 +8,11 @@ from docx.enum.style import WD_STYLE_TYPE
 from typing import Callable
 
 
+# CHANGE THIS LINE TO THE FILE YOU WANT TO PARSE
+doctor = parse("example1.pdf")
+
+
+
 variable_names = [
     "patient_full_name",
     "patient_full_name",
@@ -33,8 +38,8 @@ variable_names = [
 ]
 
 
+BLANK_VALUE = ""
 
-doctor = parse("example1.pdf")
 
 
 def create_document(doctor: Doctor):
@@ -42,7 +47,11 @@ def create_document(doctor: Doctor):
 
     # Build the document
     document = replace_text(doctor, document)
+    document = replace_table_text(doctor, document)
     return document
+
+def save_document(document: Document, doctor: Doctor): # type: ignore
+    document.save(f"DMMR REPORT - {doctor.get_patient().get_name()}.docx") # type: ignore
 
 
 def replace_text(doctor: Doctor, document: Document): # type: ignore
@@ -65,7 +74,7 @@ def replace_text(doctor: Doctor, document: Document): # type: ignore
                         else:
                             value = getattr(doctor.get_patient(), variable_name)
                         if value is None:
-                            value = "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+                            value = BLANK_VALUE
                         if type(value) == list:
                             # If the value is a list, then we need to format it with a new line for each item and a tab for each item
                             value = "\n".join(value)
@@ -74,21 +83,33 @@ def replace_text(doctor: Doctor, document: Document): # type: ignore
                         variable_names.remove(variable_name)
                         break
                     except AttributeError:
-                        print(f"Error: {variable_name} is not a valid variable name")
                         break
                 i += 1
-    print(variable_names)
     return document
 
 
+def replace_table_text(doctor: Doctor, document: Document): # type: ignore
+    # Replace the text in the tables with the doctor's details
+    conditions_table = document.tables[0]
+    # Add the patient's current conditions to the table 
+    for medication, dosage in doctor.get_patient().get_medications().items(): # type: ignore
+        new_row = conditions_table.add_row()
+        new_row.cells[0].text = medication
+        new_row.cells[1].text = dosage
+    
+    return document
 
-create_document(doctor).save("test.docx")
+
+document = create_document(doctor)
+save_document(document, doctor)
 
 
+
+
+'''
 document = Document("Blank.docx")
 paragraphs = document.paragraphs
 
-'''
 is_next = False
 for paragraph in paragraphs:
     if "reason_for_referral" in paragraph.text:
