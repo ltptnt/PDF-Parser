@@ -1,34 +1,27 @@
 import pdfplumber
 from datetime import date
-import doctor
-import patient
+from Doctor import Doctor
+from Patient import Patient
 
 # Read in the two example files
-pdf1 = pdfplumber.open("example1.pdf")
-pdf2 = pdfplumber.open("example2.pdf")
-
+def parse(file_path : str)-> Doctor:
+  pdf = pdfplumber.open(file_path)
+  return template_1(pdf)
 
 
 def template_1(pdf):
     # For the first template, we'll extract the text from the first page
     # and then split it into lines
-    page = pdf1.pages[0]
+    page = pdf.pages[0]
     text = page.extract_text()
     lines = text.split("\n")
-    print(lines)
 
-    new_doctor = doctor.doctor()
-    new_patient = patient.patient()
+    new_doctor = Doctor()
+    new_patient = Patient()
 
     for line in lines:
         # Get Pharmcist name, doctor name, patient name
-        if "Name:" in line and new_doctor.get_name() is None:
-            new_doctor.set_name(line.split("Name:")[1].strip())
-            continue
-        elif "Name:" in line and new_doctor.get_nurse_name() is None:
-            new_doctor.set_nurse_name(line.split("Name:")[1].strip())
-            continue
-        elif "Name:" in line and new_patient.get_name() is None:
+        if "Name:" in line and new_patient.get_name() is None:
             new_patient.set_name(line.split("Name:")[1].strip())
             continue
         
@@ -53,8 +46,8 @@ def template_1(pdf):
             new_patient.set_medicare(line.split("Medicare No:")[1].strip())
             continue    
         
-        if "Community Pharmacy:" in line and new_doctor.get_community_pharmacy() is None:
-            new_doctor.set_community_pharmacy(line.split("Community Pharmacy:")[1].strip())
+        if "Community Pharmacy:" in line and new_patient.get_community_pharmacist() is None:
+            new_patient.set_community_pharmacist(line.split("Community Pharmacy:")[1].strip())
             continue
         
         if "Provider No:" in line and new_doctor.get_provider_number() is None:
@@ -71,19 +64,14 @@ def template_1(pdf):
         elif "Phone:" in line and new_patient.get_phone_number is None:
             new_patient.set_phone_number(line.split("Phone:")[1].strip())
             continue
-            
-        if "Fax:" in line and new_doctor.get_fax_number() is None:
-            new_doctor.set_fax_number(line.split("Fax:")[1].strip())
-            continue
         
         if "Email:" in line and new_doctor.get_email() is None:
             new_doctor.set_email(line.split("Email:")[1].strip())
             continue
         
         
-
     # Get the date an Currrent Conditions from the second page
-    page = pdf1.pages[1]
+    page = pdf.pages[1]
     text = page.extract_text()
     lines = text.split("\n")
 
@@ -106,6 +94,3 @@ def template_1(pdf):
     # Set the doctor and patient
     new_doctor.set_patient(new_patient)
     return new_doctor
-
-doctor1 = template_1(pdf1)
-print(doctor1.get_name())

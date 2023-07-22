@@ -1,31 +1,40 @@
 from datetime import date
 
-class patient:
+class Patient:
     def __init__(self):
-        self.name = None
+        self.full_name = None
         # dob is a datetime object
         self.dob = None
-        self.address = None
-        self.medicare = None
+        self.home_address = None
+        self.medi_number = None
         self.age = None
         self.current_conditions = None
         self.phone_number = None
         self.date = None
+        self.dob_age = None
+        self.community_pharmacist = None
+        self.height = None
+        self.weight = None
+        self.blood_pressure = None
+        self.creatine = None
+        self.CrCl = None
+        self.request_time = None
     
     def set_name(self, name) -> None:
-        self.name = name
+        self.full_name = name
     
     def set_dob(self, dob) -> None:
-        self.dob = dob
+        self.dob = dob.strftime("%d/%m/%Y")
         self.age = self.calculate_age(dob)
+        self.dob_age = f"{self.dob} ({self.age}yrs old)"
     
     def set_address(self, address) -> None:
-        self.address = address
+        self.home_address = address
         
     def set_medicare(self, medicare) -> None:
-        self.medicare = medicare
+        self.medi_number = medicare
         
-    def set_current_conditions(self, current_conditions) -> None:
+    def set_current_conditions(self, current_conditions : list) -> None:
         self.current_conditions = current_conditions
         
     def set_phone_number(self, phone_number) -> None:
@@ -33,42 +42,69 @@ class patient:
         
     def set_date(self, date) -> None:
         self.date = date
+    
+    def set_height(self, height) -> None:
+        self.height = height
+
+    def set_weight(self, weight) -> None:
+        self.patient_weight = weight
+
+    def set_blood_pressure(self, blood_pressure) -> None:
+        self.blood_pressure = blood_pressure
+
+    def set_creatine(self, creatine) -> None:
+        self.creatine = creatine
+
+    def set_CrCl(self, CrCl) -> None:
+        self.CrCl = CrCl
+
+    def get_height(self) -> str | None:
+        return self.height
+    
+    def get_weight(self) -> str | None:
+        return self.weight
+    
+    def get_blood_pressure(self) -> str | None:
+        return self.blood_pressure
+    
+    def get_creatine(self) -> str | None:
+        return self.creatine
+    
+    def get_CrCl(self) -> str | None:
+        return self.CrCl
         
     def get_name(self) -> str | None:
-        return self.name
+        return self.full_name
     
     def get_dob(self) -> str | None:
-        if self.dob is not None:
-            return self.dob.strftime("%d/%m/%Y")
         return self.dob
     
     def get_address(self) -> str | None:
-        return self.address
+        return self.home_address
     
     def get_medicare(self) -> str | None:
-        return self.medicare
+        return self.medi_number
     
-    def get_age(self) -> int | None:
+    def get_age(self) -> str | None:
         return self.age
     
-    def get_current_conditions(self) -> list | None:
+    def get_current_conditions(self) -> list | str | None:
         return self.current_conditions
     
-    def get_phone_number(self) -> int | None:
+    def get_phone_number(self) -> str | None:
         return self.phone_number
     
     def get_date(self) -> date | None:
         return self.date
     
-    def __str__(self) -> str:
-        return f"Name: {str(self.get_name())}\n \
-                DOB: {str(self.get_dob())}\n \
-                Address: {str(self.get_address())}\n \
-                Medicare: {str(self.get_medicare())}\n \
-                Age: {str(self.get_age())}\n \
-                Current Conditions: {str(self.get_current_conditions())}\n \
-                Phone Number: {str(self.get_phone_number())}\n \
-                Date: {str(self.get_date())}\n"
+    def get_dob_age(self) -> str | None:
+        return self.dob_age
+    
+    def get_community_pharmacist(self) -> str | None:
+        return self.community_pharmacist
+    
+    def set_community_pharmacist(self, community_pharmacist) -> None:
+        self.community_pharmacist = community_pharmacist
     
     @staticmethod    
     def calculate_age(dob):
