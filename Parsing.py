@@ -12,7 +12,7 @@ def parse(file_path : str)-> Doctor:
   return doctor
 
 
-def template_1(pdf):
+def template_1(pdf) -> Doctor:
     # For the first template, we'll extract the text from the first page
     # and then split it into lines
     page = pdf.pages[0]
@@ -81,13 +81,35 @@ def template_1(pdf):
             new_doctor.set_email(line.split("Email:")[1].strip())
             continue
 
+        if "Date:" in line and new_patient.get_date() is None:
+            new_patient.set_date(line.split(" ")[1].strip())
+            continue
+
+        if "Height:" in line and new_patient.get_height() is None:
+            new_patient.set_height(line.split(" ")[1].strip())
+            continue
+
+        if "Weight:" in line and new_patient.get_weight() is None:
+            new_patient.set_weight(line.split(" ")[1].strip())
+            continue
+
+        if "Blood Pressure:" in line and new_patient.get_blood_pressure() is None:
+            new_patient.set_blood_pressure(line.split(" ")[2].strip())
+            continue
+
+        if "Creatinine:" in line and new_patient.get_creatine() is None:
+            new_patient.set_creatine(line.split(" ")[1].strip())
+            continue
+
         
     # Get the date an Currrent Conditions from the second page
     page = pdf.pages[1]
     text = page.extract_text()
     lines = text.split("\n")
 
+    print('PAGE 2 -----------------------------------------')
     for line in lines:
+        print(line)
         if "Date:" in line and new_patient.get_date() is None:
             new_patient.set_date(line.split(" ")[1].strip())
             continue
@@ -153,3 +175,4 @@ def template_1(pdf):
     return new_doctor
 
 parse("example1.pdf")
+

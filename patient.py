@@ -48,7 +48,7 @@ class Patient:
         self.height = height
 
     def set_weight(self, weight) -> None:
-        self.patient_weight = weight
+        self.weight = weight
 
     def set_blood_pressure(self, blood_pressure) -> None:
         self.blood_pressure = blood_pressure
