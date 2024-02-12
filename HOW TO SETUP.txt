@@ -1,5 +1,0 @@
-1. Install the latest version of python on your system, ensure you select "Add python to path"
-2. Restart Computer
-3. Open Windows Powershell and type: pip install python-docx-ng pdfplumber
-4. open the building.py file, change the example1.pdf in "doctor = parse("example1.pdf")" to the file that you wish to parse (the file needs to be in the same directory as building.py)
-5. Check the output file for issues
