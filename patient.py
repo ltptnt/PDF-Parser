@@ -25,6 +25,10 @@ class Patient:
         self.full_name = name
     
     def set_dob(self, dob) -> None:
+        if type(dob) == str:
+            self.dob = dob
+            dob = dob.split("/")
+            dob = date(int(dob[2]), int(dob[1]), int(dob[0]))
         self.dob = dob.strftime("%d/%m/%Y")
         self.age = self.calculate_age(dob)
         self.dob_age = f"{self.dob} ({self.age}yrs old)"
@@ -104,9 +108,6 @@ class Patient:
     
     def get_phone_number(self) -> str | None:
         return self.phone_number
-    
-    def get_date(self) -> date | None:
-        return self.request_time
     
     def get_dob_age(self) -> str | None:
         return self.dob_age

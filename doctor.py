@@ -1,4 +1,6 @@
 from Patient import Patient
+from datetime import date
+
 class Doctor:
     def __init__(self) -> None:
         self.full_name = None
@@ -41,7 +43,10 @@ class Doctor:
     def set_reason_for_referral(self, reason_for_referral) -> None:
         self.reason_for_referral = reason_for_referral
 
-    def set_pref_contact(self) -> None:
+    def set_pref_contact(self, pref_contact=None) -> None:
+        if pref_contact is not None:
+            self.pref_contact = pref_contact
+            return
         if self.contact_number != "" and self.email != "":
             self.pref_contact = f"Phone: {self.contact_number} or Email: {self.email}"
         elif self.contact_number != "":
@@ -80,7 +85,7 @@ class Doctor:
         # Return a string of the phone number and email address
         return self.pref_contact
 
-    def get_request_time(self) -> str | None:
+    def get_request_time(self) -> date | None:
         return self.request_time
     
     def get_reason_for_referral(self) -> str | None:
