@@ -1,16 +1,10 @@
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog
 from PySide6.QtCore import QDate
-from PySide6.QtGui import QIcon, QFont, QFontDatabase
+from PySide6.QtGui import QIcon, QFontDatabase
 from Parsing import create_document, parse
-
-# Import the Ui_MainWindow class from your generated file
-from main_window_ui import Ui_MainWindow  # Make sure to replace 'your_generated_file' with the actual name of your Python file containing the Ui_MainWindow class
+from main_window_ui import Ui_MainWindow
 from Doctor import Doctor
-from Patient import Patient
-from qt_material import apply_stylesheet
-
-from docx import Document
-
+# from qt_material import apply_stylesheet
 
 
 class MainWindow(QMainWindow):
@@ -20,7 +14,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
 
         self.filePath = None
-        #apply_stylesheet(app, theme='light_blue.xml', invert_secondary=True)
+        # apply_stylesheet(app, theme='light_blue.xml', invert_secondary=True)
         self.setWindowTitle("DMMR Report")
         self.setWindowIcon(QIcon("resources/icon.png"))
         QFontDatabase.addApplicationFont("resources/OpenSans-Regular.ttf")
@@ -33,21 +27,26 @@ class MainWindow(QMainWindow):
 
         # set the dropdown menu options
         self.ui.templateSelectorComboBox.addItems(["Template 1", "Template 2"])
-        self.ui.templateSelectorComboBox.currentIndexChanged.connect(self.populateFields)
+        self.ui.templateSelectorComboBox.currentIndexChanged.connect(
+            self.populateFields
+        )
 
         # Set doctor to None
         self.doctor = Doctor()
 
-
     def populateFields(self) -> None:
         # Set the Doctor's information
-        self.doctor = parse(self.filePath, self.ui.templateSelectorComboBox.currentIndex() + 1)
+        self.doctor = parse(
+            self.filePath, self.ui.templateSelectorComboBox.currentIndex() + 1
+        )
 
         self.ui.doctorFullNameLineEdit.setText(self.doctor.get_name())
         self.ui.doctorProviderNumberLineEdit.setText(self.doctor.get_provider_number())
         self.ui.doctorPreferredContactLineEdit.setText(self.doctor.get_pref_contact())
         self.ui.reasonForReferralLineEdit.setText(self.doctor.get_reason_for_referral())
-        self.ui.requestDateDateEdit.setDate(QDate.fromString(self.doctor.get_request_time(), "dd/MM/yyyy"))
+        self.ui.requestDateDateEdit.setDate(
+            QDate.fromString(self.doctor.get_request_time(), "dd/MM/yyyy")
+        )
 
         # Set the Patient's information
         patient = self.doctor.get_patient()
@@ -63,15 +62,20 @@ class MainWindow(QMainWindow):
         self.ui.creatineLineEdit.setText(patient.get_creatine())
         self.ui.crClLineEdit.setText(patient.get_CrCl())
         conditions = patient.get_current_conditions()
-        if type(conditions) == list:
+        if type(conditions) is list:
             conditions = "\n".join(conditions)
             self.ui.currentConditionsTextEdit.setText(conditions)
 
         # Set the Medication information
         medications = patient.get_medications()
         # Display in format "Medication: Dosage"
-        if type(medications) == dict:
-            medications = "\n".join([f"{medication}: {dosage}" for medication, dosage in medications.items()])
+        if type(medications) is dict:
+            medications = "\n".join(
+                [
+                    f"{medication}: {dosage}"
+                    for medication, dosage in medications.items()
+                ]
+            )
             self.ui.medicationsTextEdit.setText(medications)
 
     def updateData(self) -> None:
@@ -81,13 +85,19 @@ class MainWindow(QMainWindow):
         self.doctor.set_provider_number(self.ui.doctorProviderNumberLineEdit.text())
         self.doctor.set_pref_contact(self.ui.doctorPreferredContactLineEdit.text())
         self.doctor.set_reason_for_referral(self.ui.reasonForReferralLineEdit.text())
-        if self.doctor.get_request_time() is None and self.ui.requestDateDateEdit.date().toString("dd/MM/yyyy") != "01/01/2000":
-            self.doctor.set_request_time(self.ui.requestDateDateEdit.date().toString("dd/MM/yyyy"))
+        if (
+            self.doctor.get_request_time() is None
+            and self.ui.requestDateDateEdit.date().toString("dd/MM/yyyy")
+            != "01/01/2000"
+        ):
+            self.doctor.set_request_time(
+                self.ui.requestDateDateEdit.date().toString("dd/MM/yyyy")
+            )
 
         patient = self.doctor.get_patient()
         if patient is None:
             return
-        
+
         patient.set_name(self.ui.fullNameLineEdit.text())
         patient.set_dob(self.ui.dOBDateEdit.date().toString("dd/MM/yyyy"))
         patient.set_address(self.ui.addressLineEdit.text())
@@ -99,7 +109,9 @@ class MainWindow(QMainWindow):
         patient.set_CrCl(self.ui.crClLineEdit.text())
 
         # Set the Current Conditions
-        patient.set_current_conditions(self.ui.currentConditionsTextEdit.toPlainText().split("\n"))
+        patient.set_current_conditions(
+            self.ui.currentConditionsTextEdit.toPlainText().split("\n")
+        )
 
         # Set the Medications
         medications = self.ui.medicationsTextEdit.toPlainText().split("\n")
@@ -108,11 +120,13 @@ class MainWindow(QMainWindow):
 
         patient.set_medications(medications)
         self.doctor.set_patient(patient)
-    
+
     def loadFile(self) -> None:
         options = QFileDialog.Options()
-        #options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getOpenFileName(self,"Open File", "","PDF Files (*.pdf)", options=options)
+        # options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getOpenFileName(
+            self, "Open File", "", "PDF Files (*.pdf)", options=options
+        )
         if fileName:
             print(fileName)
             self.filePath = fileName
@@ -124,8 +138,10 @@ class MainWindow(QMainWindow):
 
     def saveFile(self) -> None:
         options = QFileDialog.Options()
-        #options |= QFileDialog.DontUseNativeDialog
-        fileName, _ = QFileDialog.getSaveFileName(self,"Save File", "","Word Document (*.docx)", options=options)
+        # options |= QFileDialog.DontUseNativeDialog
+        fileName, _ = QFileDialog.getSaveFileName(
+            self, "Save File", "", "Word Document (*.docx)", options=options
+        )
         if fileName:
             print(fileName)
             self.filePath = fileName

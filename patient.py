@@ -1,5 +1,6 @@
 from datetime import date
 
+
 class Patient:
     def __init__(self):
         self.full_name = None
@@ -20,34 +21,34 @@ class Patient:
         self.CrCl = None
         self.request_time = None
         self.accredited_pharmacist = None
-    
+
     def set_name(self, name) -> None:
         self.full_name = name
-    
+
     def set_dob(self, dob) -> None:
-        if type(dob) == str:
+        if type(dob) is str:
             self.dob = dob
             dob = dob.split("/")
             dob = date(int(dob[2]), int(dob[1]), int(dob[0]))
         self.dob = dob.strftime("%d/%m/%Y")
         self.age = self.calculate_age(dob)
         self.dob_age = f"{self.dob} ({self.age}yrs old)"
-    
+
     def set_address(self, address) -> None:
         self.home_address = address
-        
+
     def set_medicare(self, medicare) -> None:
         self.medi_number = medicare
-        
-    def set_current_conditions(self, current_conditions : list) -> None:
+
+    def set_current_conditions(self, current_conditions: list) -> None:
         self.current_conditions = current_conditions
-        
+
     def set_phone_number(self, phone_number) -> None:
         self.phone_number = phone_number
-        
+
     def set_date(self, date) -> None:
         self.request_time = date
-    
+
     def set_height(self, height) -> None:
         self.height = height
 
@@ -71,57 +72,56 @@ class Patient:
 
     def get_medications(self) -> dict | None:
         return self.medications
-    
 
     def get_height(self) -> str | None:
         return self.height
-    
+
     def get_weight(self) -> str | None:
         return self.weight
-    
+
     def get_blood_pressure(self) -> str | None:
         return self.blood_pressure
-    
+
     def get_creatine(self) -> str | None:
         return self.creatine
-    
+
     def get_CrCl(self) -> str | None:
         return self.CrCl
-        
+
     def get_name(self) -> str | None:
         return self.full_name
-    
+
     def get_dob(self) -> str | None:
         return self.dob
-    
+
     def get_address(self) -> str | None:
         return self.home_address
-    
+
     def get_medicare(self) -> str | None:
         return self.medi_number
-    
+
     def get_age(self) -> str | None:
         return self.age
-    
+
     def get_current_conditions(self) -> list | str | None:
         return self.current_conditions
-    
+
     def get_phone_number(self) -> str | None:
         return self.phone_number
-    
+
     def get_dob_age(self) -> str | None:
         return self.dob_age
-    
+
     def get_community_pharmacist(self) -> str | None:
         return self.community_pharmacist
-    
+
     def set_community_pharmacist(self, community_pharmacist) -> None:
         self.community_pharmacist = community_pharmacist
-    
+
     def get_accredited_pharmacist(self) -> str | None:
         return self.accredited_pharmacist
-    
-    @staticmethod    
+
+    @staticmethod
     def calculate_age(dob):
         today = date.today()
         if today.month < dob.month:
