@@ -1,8 +1,7 @@
 import json
-from tkinter import Button
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from PySide6.QtCore import QDate, QTimer
-from PySide6.QtGui import QIcon, QFontDatabase, QFont
+from PySide6.QtGui import QIcon, QFontDatabase
 from Parsing import create_document, parse
 from main_window_ui import Ui_MainWindow
 from Doctor import Doctor
