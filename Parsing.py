@@ -4,19 +4,27 @@ from Doctor import Doctor
 from Patient import Patient
 from docx import Document
 
-BLANK_VALUE = ""
-
 
 # Read in the two example files
-def parse(file_path: str, template: int) -> Doctor:
+def parse(file_path: str) -> Doctor:
     pdf = pdfplumber.open(file_path)
-    if template == 1:
-        doctor = template_1(pdf)
+    # 0 = no template, 1 = template 1, 2 = template 2
+    page = pdf.pages[0]
+    text = page.extract_text()
+    lines = text.split("\n")
+    if "COMMUNITY PHARMACY DETAILS" in lines[1]:
+        try:
+            return template_1(pdf)
+        except ValueError:
+            raise ValueError("Invalid Format, try template 2")
+    elif "ACCREDITED COMMUNITY PHARMACIST" in lines[1]:
+        try:
+            return template_2(pdf)
+        except ValueError:
+            raise ValueError("Invalid Format, try template 1")
     else:
-        doctor = template_2(pdf)
-    if doctor.get_reason_for_referral() is None:
-        doctor.set_reason_for_referral("Polypharmacy")
-    return doctor
+        raise ValueError("File could not be parsed")
+
 
 
 def template_1(pdf) -> Doctor:
@@ -94,7 +102,7 @@ def template_1(pdf) -> Doctor:
         if "Email:" in line and new_doctor.get_email() is None:
             new_doctor.set_email(line.split("Email:")[1].strip())
             continue
-
+        # Get the patient's height, weight, blood pressure, and creatine
         if "Height:" in line and new_patient.get_height() is None:
             new_patient.set_height(line.split(" ")[1].strip())
             continue
@@ -196,7 +204,167 @@ def template_1(pdf) -> Doctor:
 
 
 def template_2(pdf) -> Doctor:
-    return Doctor()
+    page = pdf.pages[0]
+    text = page.extract_text()
+    lines = text.split("\n")
+
+    new_doctor = Doctor()
+    new_patient = Patient()
+    pharmacist_name = None
+
+    BP_readings = {}
+    Height_readings = {}
+    Weight_readings = {}
+
+    for line in lines:
+        # Get accredited pharmacist name
+        if "ACCREDITED COMMUNITY PHARMACIST’S DETAILS:" in line and new_patient.get_accredited_pharmacist() is None:
+            pharmacist_name = line.split("ACCREDITED COMMUNITY PHARMACIST’S DETAILS:")[1].strip()
+            new_patient.set_accredited_pharmacist(pharmacist_name)
+            continue
+        # Get doctor name, patient name
+        if "Patient Name:" in line and new_patient.get_name() is None:
+            # get text between "Patient Name:" and Drs Name
+            new_patient.set_name(line.split("Patient Name:")[1].split("Drs. Name")[0].strip())
+            new_doctor.set_name(line.split("Drs. Name:")[1].strip())
+            continue
+        # Get Patient Address
+        if "Patient Address:" in line and new_patient.get_address() is None:
+            new_patient.set_address(line.split("Patient Address:")[1].strip())
+            continue
+        # Get patient phone number and provider number
+        if "Patient Phone:" in line and new_patient.get_phone_number() is None:
+            new_patient.set_phone_number(line.split("Patient Phone:")[1].split("Provider No:")[0].strip())
+            new_doctor.set_provider_number(line.split("Provider No:")[1].strip())
+            continue
+        # Get DOB and Prescriber No
+        if "DOB:" in line and new_patient.get_dob() is None:
+            DOB = line.split("DOB:")[1].split("Prescriber No:")[0].strip()
+            new_patient.set_dob(DOB)
+            new_doctor.set_prescriber_number(line.split("Prescriber No:")[1].strip())
+            continue
+        # Get Medicare No and Phone
+        if "Medicare No:" in line and new_patient.get_medicare() is None:
+            new_patient.set_medicare(line.split("Medicare No:")[1].split("Phone:")[0].strip())
+            new_doctor.set_contact_number(line.split("Phone:")[1].strip())
+            continue
+        
+        if "BP" in line:
+            # Format date "BP" reading "Sitting"
+            bp_measure = line.split(" ")[0]
+            measurement_date = date(int(bp_measure.split("/")[2]), int(bp_measure.split("/")[1]), int(bp_measure.split("/")[0]))
+            BP_readings[measurement_date] = line.split(" ")[2]
+            continue
+        if "Height" in line:
+            # Format date "Height" reading
+            height_measure = line.split(" ")[0]
+            measurement_date = date(int(height_measure.split("/")[2]), int(height_measure.split("/")[1]), int(height_measure.split("/")[0]))
+            Height_readings[measurement_date] = line.split(" ")[2]
+            continue
+        if "Weight" in line:
+            # Format date "Weight" reading
+            weight_measure = line.split(" ")[0]
+            measurement_date = date(int(weight_measure.split("/")[2]), int(weight_measure.split("/")[1]), int(weight_measure.split("/")[0]))
+            Weight_readings[measurement_date] = line.split(" ")[2]
+            continue
+
+    # Get the most recent reading
+    new_patient.set_blood_pressure(BP_readings[max(BP_readings)])
+    new_patient.set_height(Height_readings[max(Height_readings)] + "cm")
+    new_patient.set_weight(Weight_readings[max(Weight_readings)] + "kg")
+
+    # Get the medications from the 2nd page
+    # get the left side of the page
+    page = pdf.pages[1]
+    # change the margin to be 0
+    page = page.within_bbox((0, 0, page.width, page.height))
+    left_side = page.crop((0, 0, page.width / 2, page.height))
+    
+    # extract text from left side
+    l_text = left_side.extract_text()
+    l_text = l_text.split("\n")
+    # remove all values before and including "Current Medications"
+    l_text = l_text[l_text.index("CURRENT MEDICATION:") + 1:]
+    # remove all values after and including "Current Conditions"
+    l_text = l_text[:l_text.index("CURRENT CONDITIONS:")]
+    
+    lines = page.extract_text().split("\n")
+    # remove all values before and including "CURRENT MEDICATION:"
+    lines = lines[lines.index("CURRENT MEDICATION:") + 1:]
+    # remove all values after and including "CURRENT CONDITIONS:"
+    lines = lines[:lines.index("CURRENT CONDITIONS:")]
+
+    # split lines into medications and dosages using the l_text medication list
+    medications = []
+    dosages = []
+    for line in lines:
+        for medication in l_text:
+            if medication in line:
+                medications.append(medication)
+                dosages.append(line.split(medication)[1].strip())
+                # if the line is not the last line and the last character is not a period
+                # then the dosage is a multi-line dosage
+                if line != lines[-1] and line[-1] != ".":
+                    dosages[-1] += " " + lines[lines.index(line) + 1]
+                break
+
+    # convert the medications and dosages to a dictionary
+    medication_dict = dict(zip(medications, dosages))
+    # Add the medications to the patient
+
+    # Set the doctor and patient
+    new_patient.set_medications(medication_dict)
+
+    # Get current conditions from the 2nd page and 3rd page
+    page = pdf.pages[1]
+    text = page.extract_text()
+    lines = text.split("\n")
+    for line in lines:
+        if "CURRENT CONDITIONS:" in line:
+            lines = lines[lines.index(line) + 1:]
+            break
+    current_conditions = []
+    current_conditions += lines
+
+    # Get the date and rest of the current conditions from the 3rd page
+    page = pdf.pages[2]
+    # adjust the margin to be 0
+    page = page.within_bbox((0, 0, page.width, page.height))
+    text = page.extract_text()
+    lines = text.split("\n")
+    # if the first line contains "//", remove every second character from the line
+    if "//" in lines[0]:
+        fixed = ""
+        for word in lines[0].split(" "):
+            word = word[::2]
+            fixed += word + " "
+        lines[0] = fixed
+    # split after "CURRENT CONDITIONS:" and before "RELEVANT LABORATORY RESULTS AND BLOOD DRUG LEVELS"
+    for line in lines:
+        if "CURRENT CONDITIONS:" in line:
+            lines = lines[lines.index(line) + 1:]
+            break
+
+    for line in lines:
+        if "RELEVANT LABORATORY" in line:
+            lines = lines[:lines.index(line)]
+            continue
+ 
+    current_conditions += (lines)
+    new_patient.set_current_conditions(current_conditions)
+
+    # Get date from the last page
+    page = pdf.pages[-1]
+    text = page.extract_text()
+    lines = text.split("\n")
+    for line in lines:
+        if "Date:" in line:
+            new_doctor.set_request_time(line.split(" ")[1].strip())
+            break
+
+    new_doctor.set_patient(new_patient)
+
+    return new_doctor
 
 
 def create_document(doctor: Doctor):
@@ -250,7 +418,7 @@ def create_document(doctor: Doctor):
                             value = getattr(doctor.get_patient(),
                                             variable_name)
                         if value is None:
-                            value = BLANK_VALUE
+                            value = ""
                         if type(value) is list:
                             # If the value is a list, then we need to format it
                             # with a new line and a tab for each item

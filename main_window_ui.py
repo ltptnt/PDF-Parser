@@ -1,70 +1,56 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-# Form generated from reading UI file 'main_window.ui'
-#
-# Created by: Qt User Interface Compiler version 6.6.1
-#
-# WARNING! All changes made in this file will be lost when recompiling UI file!
+## Form generated from reading UI file 'main_window.ui'
+##
+## Created by: Qt User Interface Compiler version 6.6.1
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import (
-    QCoreApplication,
-    QMetaObject,
-    QSize,
-    Qt,
-)
-from PySide6.QtGui import (
-    QFont,
-)
-from PySide6.QtWidgets import (
-    QAbstractScrollArea,
-    QAbstractSpinBox,
-    QComboBox,
-    QDateEdit,
-    QFrame,
-    QGridLayout,
-    QLabel,
-    QLayout,
-    QLineEdit,
-    QPushButton,
-    QSizePolicy,
-    QTabWidget,
-    QTextEdit,
-    QWidget,
-)
-
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QAbstractScrollArea, QAbstractSpinBox, QApplication, QComboBox,
+    QDateEdit, QFrame, QGridLayout, QLabel,
+    QLayout, QLineEdit, QMainWindow, QPushButton,
+    QSizePolicy, QTabWidget, QTextEdit, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
-            MainWindow.setObjectName("MainWindow")
-        MainWindow.setWindowModality(Qt.WindowModal)
-        MainWindow.resize(700, 1240)
-        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+            MainWindow.setObjectName(u"MainWindow")
+        MainWindow.setWindowModality(Qt.ApplicationModal)
+        MainWindow.resize(716, 1285)
+        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QSize(700, 1240))
-        MainWindow.setMaximumSize(QSize(700, 1269))
+        MainWindow.setMinimumSize(QSize(0, 0))
+        MainWindow.setMaximumSize(QSize(100000, 100000))
         font = QFont()
-        font.setFamilies(["Open Sans"])
+        font.setFamilies([u"Open Sans"])
         font.setPointSize(11)
         MainWindow.setFont(font)
         MainWindow.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)
-        MainWindow.setDocumentMode(True)
+        MainWindow.setDocumentMode(False)
         MainWindow.setTabShape(QTabWidget.Rounded)
+        MainWindow.setUnifiedTitleAndToolBarOnMac(True)
         self.centralwidget = QWidget(MainWindow)
-        self.centralwidget.setObjectName("centralwidget")
+        self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setEnabled(True)
-        sizePolicy.setHeightForWidth(
-            self.centralwidget.sizePolicy().hasHeightForWidth()
-        )
+        sizePolicy.setHeightForWidth(self.centralwidget.sizePolicy().hasHeightForWidth())
         self.centralwidget.setSizePolicy(sizePolicy)
-        self.centralwidget.setMaximumSize(QSize(10000, 10000))
+        self.centralwidget.setMinimumSize(QSize(0, 0))
+        self.centralwidget.setMaximumSize(QSize(100000, 100000))
         font1 = QFont()
-        font1.setFamilies(["Open Sans"])
+        font1.setFamilies([u"Open Sans"])
         font1.setPointSize(13)
         self.centralwidget.setFont(font1)
         self.centralwidget.setFocusPolicy(Qt.ClickFocus)
@@ -74,22 +60,23 @@ class Ui_MainWindow(object):
         self.gridLayout_3 = QGridLayout(self.centralwidget)
         self.gridLayout_3.setSpacing(6)
         self.gridLayout_3.setContentsMargins(9, 9, 9, 9)
-        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.mainApp = QGridLayout()
         self.mainApp.setSpacing(6)
-        self.mainApp.setObjectName("mainApp")
+        self.mainApp.setObjectName(u"mainApp")
         self.mainApp.setSizeConstraint(QLayout.SetDefaultConstraint)
         self.mainApp.setHorizontalSpacing(20)
         self.mainApp.setVerticalSpacing(10)
         self.mainApp.setContentsMargins(10, 10, 10, 10)
         self.line9 = QFrame(self.centralwidget)
-        self.line9.setObjectName("line9")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        self.line9.setObjectName(u"line9")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.line9.sizePolicy().hasHeightForWidth())
         self.line9.setSizePolicy(sizePolicy1)
-        self.line9.setMinimumSize(QSize(1, 1))
+        self.line9.setMinimumSize(QSize(662, 1))
+        self.line9.setMaximumSize(QSize(662, 1))
         self.line9.setFont(font1)
         self.line9.setLayoutDirection(Qt.LeftToRight)
         self.line9.setFrameShadow(QFrame.Plain)
@@ -98,40 +85,31 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line9, 17, 0, 1, 2)
 
         self.bloodPressureLabel = QLabel(self.centralwidget)
-        self.bloodPressureLabel.setObjectName("bloodPressureLabel")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(
-            self.bloodPressureLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.bloodPressureLabel.setSizePolicy(sizePolicy2)
-        self.bloodPressureLabel.setMinimumSize(QSize(230, 0))
+        self.bloodPressureLabel.setObjectName(u"bloodPressureLabel")
+        sizePolicy1.setHeightForWidth(self.bloodPressureLabel.sizePolicy().hasHeightForWidth())
+        self.bloodPressureLabel.setSizePolicy(sizePolicy1)
+        self.bloodPressureLabel.setMinimumSize(QSize(230, 29))
+        self.bloodPressureLabel.setMaximumSize(QSize(230, 29))
         self.bloodPressureLabel.setFont(font1)
 
         self.mainApp.addWidget(self.bloodPressureLabel, 14, 0, 1, 1)
 
         self.bloodPressureLineEdit = QLineEdit(self.centralwidget)
-        self.bloodPressureLineEdit.setObjectName("bloodPressureLineEdit")
-        sizePolicy3 = QSizePolicy(
-            QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding
-        )
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(
-            self.bloodPressureLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.bloodPressureLineEdit.setSizePolicy(sizePolicy3)
-        self.bloodPressureLineEdit.setMinimumSize(QSize(410, 0))
+        self.bloodPressureLineEdit.setObjectName(u"bloodPressureLineEdit")
+        sizePolicy1.setHeightForWidth(self.bloodPressureLineEdit.sizePolicy().hasHeightForWidth())
+        self.bloodPressureLineEdit.setSizePolicy(sizePolicy1)
+        self.bloodPressureLineEdit.setMinimumSize(QSize(412, 29))
+        self.bloodPressureLineEdit.setMaximumSize(QSize(412, 29))
         self.bloodPressureLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.bloodPressureLineEdit, 14, 1, 1, 1)
 
         self.line10 = QFrame(self.centralwidget)
-        self.line10.setObjectName("line10")
+        self.line10.setObjectName(u"line10")
         sizePolicy1.setHeightForWidth(self.line10.sizePolicy().hasHeightForWidth())
         self.line10.setSizePolicy(sizePolicy1)
-        self.line10.setMinimumSize(QSize(1, 1))
+        self.line10.setMinimumSize(QSize(662, 1))
+        self.line10.setMaximumSize(QSize(662, 1))
         self.line10.setFont(font1)
         self.line10.setLayoutDirection(Qt.LeftToRight)
         self.line10.setFrameShadow(QFrame.Plain)
@@ -139,211 +117,148 @@ class Ui_MainWindow(object):
 
         self.mainApp.addWidget(self.line10, 19, 0, 1, 2)
 
-        self.line11_2 = QFrame(self.centralwidget)
-        self.line11_2.setObjectName("line11_2")
-        sizePolicy1.setHeightForWidth(self.line11_2.sizePolicy().hasHeightForWidth())
-        self.line11_2.setSizePolicy(sizePolicy1)
-        self.line11_2.setMinimumSize(QSize(1, 1))
-        self.line11_2.setFont(font1)
-        self.line11_2.setLayoutDirection(Qt.LeftToRight)
-        self.line11_2.setFrameShadow(QFrame.Plain)
-        self.line11_2.setFrameShape(QFrame.HLine)
-
-        self.mainApp.addWidget(self.line11_2, 23, 0, 1, 2)
-
-        self.titleGridLayout = QGridLayout()
-        self.titleGridLayout.setSpacing(6)
-        self.titleGridLayout.setObjectName("titleGridLayout")
-        self.titleGridLayout.setContentsMargins(-1, -1, -1, 0)
-        self.getInformationButton = QPushButton(self.centralwidget)
-        self.getInformationButton.setObjectName("getInformationButton")
-        sizePolicy.setHeightForWidth(
-            self.getInformationButton.sizePolicy().hasHeightForWidth()
-        )
-        self.getInformationButton.setSizePolicy(sizePolicy)
-        self.getInformationButton.setMinimumSize(QSize(170, 28))
-        self.getInformationButton.setFont(font1)
-
-        self.titleGridLayout.addWidget(self.getInformationButton, 1, 1, 1, 1)
-
-        self.createDocumentButton = QPushButton(self.centralwidget)
-        self.createDocumentButton.setObjectName("createDocumentButton")
-        sizePolicy.setHeightForWidth(
-            self.createDocumentButton.sizePolicy().hasHeightForWidth()
-        )
-        self.createDocumentButton.setSizePolicy(sizePolicy)
-        self.createDocumentButton.setMinimumSize(QSize(170, 28))
-        self.createDocumentButton.setFont(font1)
-
-        self.titleGridLayout.addWidget(self.createDocumentButton, 2, 1, 1, 1)
-
-        self.templateSelectorComboBox = QComboBox(self.centralwidget)
-        self.templateSelectorComboBox.setObjectName("templateSelectorComboBox")
-        sizePolicy.setHeightForWidth(
-            self.templateSelectorComboBox.sizePolicy().hasHeightForWidth()
-        )
-        self.templateSelectorComboBox.setSizePolicy(sizePolicy)
-        self.templateSelectorComboBox.setMinimumSize(QSize(170, 28))
-        self.templateSelectorComboBox.setFont(font1)
-        self.templateSelectorComboBox.setFrame(True)
-
-        self.titleGridLayout.addWidget(self.templateSelectorComboBox, 0, 1, 1, 1)
-
-        self.TitleText = QLabel(self.centralwidget)
-        self.TitleText.setObjectName("TitleText")
-        sizePolicy4 = QSizePolicy(
-            QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding
-        )
-        sizePolicy4.setHorizontalStretch(1)
-        sizePolicy4.setVerticalStretch(1)
-        sizePolicy4.setHeightForWidth(self.TitleText.sizePolicy().hasHeightForWidth())
-        self.TitleText.setSizePolicy(sizePolicy4)
-        self.TitleText.setMinimumSize(QSize(0, 120))
-        font2 = QFont()
-        font2.setFamilies(["Open Sans"])
-        font2.setPointSize(20)
-        self.TitleText.setFont(font2)
-        self.TitleText.setIndent(10)
-
-        self.titleGridLayout.addWidget(self.TitleText, 0, 0, 3, 1)
-
-        self.mainApp.addLayout(self.titleGridLayout, 0, 0, 1, 2)
-
-        self.doctorPreferredContactLineEdit = QLineEdit(self.centralwidget)
-        self.doctorPreferredContactLineEdit.setObjectName(
-            "doctorPreferredContactLineEdit"
-        )
-        sizePolicy3.setHeightForWidth(
-            self.doctorPreferredContactLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.doctorPreferredContactLineEdit.setSizePolicy(sizePolicy3)
-        self.doctorPreferredContactLineEdit.setMinimumSize(QSize(410, 0))
-        self.doctorPreferredContactLineEdit.setFont(font1)
-
-        self.mainApp.addWidget(self.doctorPreferredContactLineEdit, 28, 1, 1, 1)
-
-        self.crClLineEdit = QLineEdit(self.centralwidget)
-        self.crClLineEdit.setObjectName("crClLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.crClLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.crClLineEdit.setSizePolicy(sizePolicy3)
-        self.crClLineEdit.setMinimumSize(QSize(410, 0))
-        self.crClLineEdit.setFont(font1)
-
-        self.mainApp.addWidget(self.crClLineEdit, 18, 1, 1, 1)
-
-        self.addressLabel = QLabel(self.centralwidget)
-        self.addressLabel.setObjectName("addressLabel")
-        sizePolicy2.setHeightForWidth(
-            self.addressLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.addressLabel.setSizePolicy(sizePolicy2)
-        self.addressLabel.setMinimumSize(QSize(230, 0))
-        self.addressLabel.setFont(font1)
-
-        self.mainApp.addWidget(self.addressLabel, 6, 0, 1, 1)
-
-        self.medicationsLabel = QLabel(self.centralwidget)
-        self.medicationsLabel.setObjectName("medicationsLabel")
-        sizePolicy2.setHeightForWidth(
-            self.medicationsLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.medicationsLabel.setSizePolicy(sizePolicy2)
-        self.medicationsLabel.setMinimumSize(QSize(230, 0))
-        self.medicationsLabel.setFont(font1)
-
-        self.mainApp.addWidget(self.medicationsLabel, 22, 0, 1, 1)
-
-        self.line16 = QFrame(self.centralwidget)
-        self.line16.setObjectName("line16")
-        sizePolicy1.setHeightForWidth(self.line16.sizePolicy().hasHeightForWidth())
-        self.line16.setSizePolicy(sizePolicy1)
-        self.line16.setMinimumSize(QSize(1, 1))
-        self.line16.setFont(font1)
-        self.line16.setLayoutDirection(Qt.LeftToRight)
-        self.line16.setFrameShadow(QFrame.Plain)
-        self.line16.setFrameShape(QFrame.HLine)
-
-        self.mainApp.addWidget(self.line16, 33, 0, 1, 2)
-
-        self.line14 = QFrame(self.centralwidget)
-        self.line14.setObjectName("line14")
-        sizePolicy1.setHeightForWidth(self.line14.sizePolicy().hasHeightForWidth())
-        self.line14.setSizePolicy(sizePolicy1)
-        self.line14.setMinimumSize(QSize(1, 1))
-        self.line14.setFont(font1)
-        self.line14.setLayoutDirection(Qt.LeftToRight)
-        self.line14.setFrameShadow(QFrame.Plain)
-        self.line14.setFrameShape(QFrame.HLine)
-
-        self.mainApp.addWidget(self.line14, 29, 0, 1, 2)
-
-        self.creatineLineEdit = QLineEdit(self.centralwidget)
-        self.creatineLineEdit.setObjectName("creatineLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.creatineLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.creatineLineEdit.setSizePolicy(sizePolicy3)
-        self.creatineLineEdit.setMinimumSize(QSize(410, 0))
-        self.creatineLineEdit.setFont(font1)
-
-        self.mainApp.addWidget(self.creatineLineEdit, 16, 1, 1, 1)
-
         self.line12 = QFrame(self.centralwidget)
-        self.line12.setObjectName("line12")
+        self.line12.setObjectName(u"line12")
         sizePolicy1.setHeightForWidth(self.line12.sizePolicy().hasHeightForWidth())
         self.line12.setSizePolicy(sizePolicy1)
-        self.line12.setMinimumSize(QSize(1, 1))
+        self.line12.setMinimumSize(QSize(662, 1))
+        self.line12.setMaximumSize(QSize(662, 1))
         self.line12.setFont(font1)
         self.line12.setLayoutDirection(Qt.LeftToRight)
         self.line12.setFrameShadow(QFrame.Plain)
         self.line12.setFrameShape(QFrame.HLine)
 
-        self.mainApp.addWidget(self.line12, 25, 0, 1, 2)
+        self.mainApp.addWidget(self.line12, 23, 0, 1, 2)
+
+        self.doctorPreferredContactLineEdit = QLineEdit(self.centralwidget)
+        self.doctorPreferredContactLineEdit.setObjectName(u"doctorPreferredContactLineEdit")
+        sizePolicy1.setHeightForWidth(self.doctorPreferredContactLineEdit.sizePolicy().hasHeightForWidth())
+        self.doctorPreferredContactLineEdit.setSizePolicy(sizePolicy1)
+        self.doctorPreferredContactLineEdit.setMinimumSize(QSize(412, 29))
+        self.doctorPreferredContactLineEdit.setMaximumSize(QSize(412, 29))
+        self.doctorPreferredContactLineEdit.setFont(font1)
+
+        self.mainApp.addWidget(self.doctorPreferredContactLineEdit, 28, 1, 1, 1)
+
+        self.crClLineEdit = QLineEdit(self.centralwidget)
+        self.crClLineEdit.setObjectName(u"crClLineEdit")
+        sizePolicy1.setHeightForWidth(self.crClLineEdit.sizePolicy().hasHeightForWidth())
+        self.crClLineEdit.setSizePolicy(sizePolicy1)
+        self.crClLineEdit.setMinimumSize(QSize(412, 29))
+        self.crClLineEdit.setMaximumSize(QSize(412, 29))
+        self.crClLineEdit.setFont(font1)
+
+        self.mainApp.addWidget(self.crClLineEdit, 18, 1, 1, 1)
+
+        self.addressLabel = QLabel(self.centralwidget)
+        self.addressLabel.setObjectName(u"addressLabel")
+        sizePolicy1.setHeightForWidth(self.addressLabel.sizePolicy().hasHeightForWidth())
+        self.addressLabel.setSizePolicy(sizePolicy1)
+        self.addressLabel.setMinimumSize(QSize(230, 29))
+        self.addressLabel.setMaximumSize(QSize(230, 29))
+        self.addressLabel.setFont(font1)
+
+        self.mainApp.addWidget(self.addressLabel, 6, 0, 1, 1)
+
+        self.medicationsLabel = QLabel(self.centralwidget)
+        self.medicationsLabel.setObjectName(u"medicationsLabel")
+        sizePolicy1.setHeightForWidth(self.medicationsLabel.sizePolicy().hasHeightForWidth())
+        self.medicationsLabel.setSizePolicy(sizePolicy1)
+        self.medicationsLabel.setMinimumSize(QSize(230, 164))
+        self.medicationsLabel.setMaximumSize(QSize(230, 164))
+        self.medicationsLabel.setFont(font1)
+
+        self.mainApp.addWidget(self.medicationsLabel, 22, 0, 1, 1)
+
+        self.line17 = QFrame(self.centralwidget)
+        self.line17.setObjectName(u"line17")
+        sizePolicy1.setHeightForWidth(self.line17.sizePolicy().hasHeightForWidth())
+        self.line17.setSizePolicy(sizePolicy1)
+        self.line17.setMinimumSize(QSize(662, 1))
+        self.line17.setMaximumSize(QSize(662, 1))
+        self.line17.setFont(font1)
+        self.line17.setLayoutDirection(Qt.LeftToRight)
+        self.line17.setFrameShadow(QFrame.Plain)
+        self.line17.setFrameShape(QFrame.HLine)
+
+        self.mainApp.addWidget(self.line17, 33, 0, 1, 2)
+
+        self.line15 = QFrame(self.centralwidget)
+        self.line15.setObjectName(u"line15")
+        sizePolicy1.setHeightForWidth(self.line15.sizePolicy().hasHeightForWidth())
+        self.line15.setSizePolicy(sizePolicy1)
+        self.line15.setMinimumSize(QSize(662, 1))
+        self.line15.setMaximumSize(QSize(662, 1))
+        self.line15.setFont(font1)
+        self.line15.setLayoutDirection(Qt.LeftToRight)
+        self.line15.setFrameShadow(QFrame.Plain)
+        self.line15.setFrameShape(QFrame.HLine)
+
+        self.mainApp.addWidget(self.line15, 29, 0, 1, 2)
+
+        self.creatineLineEdit = QLineEdit(self.centralwidget)
+        self.creatineLineEdit.setObjectName(u"creatineLineEdit")
+        sizePolicy1.setHeightForWidth(self.creatineLineEdit.sizePolicy().hasHeightForWidth())
+        self.creatineLineEdit.setSizePolicy(sizePolicy1)
+        self.creatineLineEdit.setMinimumSize(QSize(412, 29))
+        self.creatineLineEdit.setMaximumSize(QSize(412, 29))
+        self.creatineLineEdit.setFont(font1)
+
+        self.mainApp.addWidget(self.creatineLineEdit, 16, 1, 1, 1)
+
+        self.line13 = QFrame(self.centralwidget)
+        self.line13.setObjectName(u"line13")
+        sizePolicy1.setHeightForWidth(self.line13.sizePolicy().hasHeightForWidth())
+        self.line13.setSizePolicy(sizePolicy1)
+        self.line13.setMinimumSize(QSize(662, 1))
+        self.line13.setMaximumSize(QSize(662, 1))
+        self.line13.setFont(font1)
+        self.line13.setLayoutDirection(Qt.LeftToRight)
+        self.line13.setFrameShadow(QFrame.Plain)
+        self.line13.setFrameShape(QFrame.HLine)
+
+        self.mainApp.addWidget(self.line13, 25, 0, 1, 2)
 
         self.reasonForReferralLineEdit = QLineEdit(self.centralwidget)
-        self.reasonForReferralLineEdit.setObjectName("reasonForReferralLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.reasonForReferralLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.reasonForReferralLineEdit.setSizePolicy(sizePolicy3)
-        self.reasonForReferralLineEdit.setMinimumSize(QSize(410, 0))
+        self.reasonForReferralLineEdit.setObjectName(u"reasonForReferralLineEdit")
+        sizePolicy1.setHeightForWidth(self.reasonForReferralLineEdit.sizePolicy().hasHeightForWidth())
+        self.reasonForReferralLineEdit.setSizePolicy(sizePolicy1)
+        self.reasonForReferralLineEdit.setMinimumSize(QSize(412, 29))
+        self.reasonForReferralLineEdit.setMaximumSize(QSize(412, 29))
         self.reasonForReferralLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.reasonForReferralLineEdit, 30, 1, 1, 1)
 
         self.doctorProviderNumberLabel = QLabel(self.centralwidget)
-        self.doctorProviderNumberLabel.setObjectName("doctorProviderNumberLabel")
-        sizePolicy2.setHeightForWidth(
-            self.doctorProviderNumberLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.doctorProviderNumberLabel.setSizePolicy(sizePolicy2)
-        self.doctorProviderNumberLabel.setMinimumSize(QSize(230, 0))
+        self.doctorProviderNumberLabel.setObjectName(u"doctorProviderNumberLabel")
+        sizePolicy1.setHeightForWidth(self.doctorProviderNumberLabel.sizePolicy().hasHeightForWidth())
+        self.doctorProviderNumberLabel.setSizePolicy(sizePolicy1)
+        self.doctorProviderNumberLabel.setMinimumSize(QSize(230, 29))
+        self.doctorProviderNumberLabel.setMaximumSize(QSize(230, 29))
         self.doctorProviderNumberLabel.setFont(font1)
 
         self.mainApp.addWidget(self.doctorProviderNumberLabel, 26, 0, 1, 1)
 
         self.medicareNumberLabel = QLabel(self.centralwidget)
-        self.medicareNumberLabel.setObjectName("medicareNumberLabel")
-        sizePolicy2.setHeightForWidth(
-            self.medicareNumberLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.medicareNumberLabel.setSizePolicy(sizePolicy2)
-        self.medicareNumberLabel.setMinimumSize(QSize(230, 0))
+        self.medicareNumberLabel.setObjectName(u"medicareNumberLabel")
+        sizePolicy1.setHeightForWidth(self.medicareNumberLabel.sizePolicy().hasHeightForWidth())
+        self.medicareNumberLabel.setSizePolicy(sizePolicy1)
+        self.medicareNumberLabel.setMinimumSize(QSize(230, 29))
+        self.medicareNumberLabel.setMaximumSize(QSize(230, 29))
         self.medicareNumberLabel.setFont(font1)
 
         self.mainApp.addWidget(self.medicareNumberLabel, 8, 0, 1, 1)
 
         self.medicationsTextEdit = QTextEdit(self.centralwidget)
-        self.medicationsTextEdit.setObjectName("medicationsTextEdit")
-        sizePolicy3.setHeightForWidth(
-            self.medicationsTextEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.medicationsTextEdit.setSizePolicy(sizePolicy3)
-        self.medicationsTextEdit.setMinimumSize(QSize(410, 90))
-        self.medicationsTextEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.medicationsTextEdit.setObjectName(u"medicationsTextEdit")
+        sizePolicy1.setHeightForWidth(self.medicationsTextEdit.sizePolicy().hasHeightForWidth())
+        self.medicationsTextEdit.setSizePolicy(sizePolicy1)
+        self.medicationsTextEdit.setMinimumSize(QSize(412, 164))
+        self.medicationsTextEdit.setMaximumSize(QSize(412, 164))
         self.medicationsTextEdit.setFont(font1)
+        self.medicationsTextEdit.setFocusPolicy(Qt.ClickFocus)
+        self.medicationsTextEdit.setFrameShape(QFrame.StyledPanel)
+        self.medicationsTextEdit.setFrameShadow(QFrame.Plain)
         self.medicationsTextEdit.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
         self.medicationsTextEdit.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         self.medicationsTextEdit.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
@@ -353,10 +268,11 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.medicationsTextEdit, 22, 1, 1, 1)
 
         self.dOBDateEdit = QDateEdit(self.centralwidget)
-        self.dOBDateEdit.setObjectName("dOBDateEdit")
-        sizePolicy3.setHeightForWidth(self.dOBDateEdit.sizePolicy().hasHeightForWidth())
-        self.dOBDateEdit.setSizePolicy(sizePolicy3)
-        self.dOBDateEdit.setMinimumSize(QSize(410, 0))
+        self.dOBDateEdit.setObjectName(u"dOBDateEdit")
+        sizePolicy1.setHeightForWidth(self.dOBDateEdit.sizePolicy().hasHeightForWidth())
+        self.dOBDateEdit.setSizePolicy(sizePolicy1)
+        self.dOBDateEdit.setMinimumSize(QSize(412, 29))
+        self.dOBDateEdit.setMaximumSize(QSize(412, 29))
         self.dOBDateEdit.setFont(font1)
         self.dOBDateEdit.setWrapping(False)
         self.dOBDateEdit.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
@@ -366,19 +282,21 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.dOBDateEdit, 4, 1, 1, 1)
 
         self.crClLabel = QLabel(self.centralwidget)
-        self.crClLabel.setObjectName("crClLabel")
-        sizePolicy2.setHeightForWidth(self.crClLabel.sizePolicy().hasHeightForWidth())
-        self.crClLabel.setSizePolicy(sizePolicy2)
-        self.crClLabel.setMinimumSize(QSize(230, 0))
+        self.crClLabel.setObjectName(u"crClLabel")
+        sizePolicy1.setHeightForWidth(self.crClLabel.sizePolicy().hasHeightForWidth())
+        self.crClLabel.setSizePolicy(sizePolicy1)
+        self.crClLabel.setMinimumSize(QSize(230, 29))
+        self.crClLabel.setMaximumSize(QSize(230, 29))
         self.crClLabel.setFont(font1)
 
         self.mainApp.addWidget(self.crClLabel, 18, 0, 1, 1)
 
         self.line3 = QFrame(self.centralwidget)
-        self.line3.setObjectName("line3")
+        self.line3.setObjectName(u"line3")
         sizePolicy1.setHeightForWidth(self.line3.sizePolicy().hasHeightForWidth())
         self.line3.setSizePolicy(sizePolicy1)
-        self.line3.setMinimumSize(QSize(1, 1))
+        self.line3.setMinimumSize(QSize(662, 1))
+        self.line3.setMaximumSize(QSize(662, 1))
         self.line3.setFont(font1)
         self.line3.setLayoutDirection(Qt.LeftToRight)
         self.line3.setFrameShadow(QFrame.Plain)
@@ -387,21 +305,21 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line3, 5, 0, 1, 2)
 
         self.addressLineEdit = QLineEdit(self.centralwidget)
-        self.addressLineEdit.setObjectName("addressLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.addressLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.addressLineEdit.setSizePolicy(sizePolicy3)
-        self.addressLineEdit.setMinimumSize(QSize(410, 0))
+        self.addressLineEdit.setObjectName(u"addressLineEdit")
+        sizePolicy1.setHeightForWidth(self.addressLineEdit.sizePolicy().hasHeightForWidth())
+        self.addressLineEdit.setSizePolicy(sizePolicy1)
+        self.addressLineEdit.setMinimumSize(QSize(412, 29))
+        self.addressLineEdit.setMaximumSize(QSize(412, 29))
         self.addressLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.addressLineEdit, 6, 1, 1, 1)
 
         self.line6 = QFrame(self.centralwidget)
-        self.line6.setObjectName("line6")
+        self.line6.setObjectName(u"line6")
         sizePolicy1.setHeightForWidth(self.line6.sizePolicy().hasHeightForWidth())
         self.line6.setSizePolicy(sizePolicy1)
-        self.line6.setMinimumSize(QSize(1, 1))
+        self.line6.setMinimumSize(QSize(662, 1))
+        self.line6.setMaximumSize(QSize(662, 1))
         self.line6.setFont(font1)
         self.line6.setLayoutDirection(Qt.LeftToRight)
         self.line6.setFrameShadow(QFrame.Plain)
@@ -410,19 +328,21 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line6, 11, 0, 1, 2)
 
         self.dOBLabel = QLabel(self.centralwidget)
-        self.dOBLabel.setObjectName("dOBLabel")
-        sizePolicy2.setHeightForWidth(self.dOBLabel.sizePolicy().hasHeightForWidth())
-        self.dOBLabel.setSizePolicy(sizePolicy2)
-        self.dOBLabel.setMinimumSize(QSize(230, 0))
+        self.dOBLabel.setObjectName(u"dOBLabel")
+        sizePolicy1.setHeightForWidth(self.dOBLabel.sizePolicy().hasHeightForWidth())
+        self.dOBLabel.setSizePolicy(sizePolicy1)
+        self.dOBLabel.setMinimumSize(QSize(230, 29))
+        self.dOBLabel.setMaximumSize(QSize(230, 29))
         self.dOBLabel.setFont(font1)
 
         self.mainApp.addWidget(self.dOBLabel, 4, 0, 1, 1)
 
         self.line2 = QFrame(self.centralwidget)
-        self.line2.setObjectName("line2")
+        self.line2.setObjectName(u"line2")
         sizePolicy1.setHeightForWidth(self.line2.sizePolicy().hasHeightForWidth())
         self.line2.setSizePolicy(sizePolicy1)
-        self.line2.setMinimumSize(QSize(1, 1))
+        self.line2.setMinimumSize(QSize(662, 1))
+        self.line2.setMaximumSize(QSize(662, 1))
         self.line2.setFont(font1)
         self.line2.setLayoutDirection(Qt.LeftToRight)
         self.line2.setFrameShadow(QFrame.Plain)
@@ -430,77 +350,55 @@ class Ui_MainWindow(object):
 
         self.mainApp.addWidget(self.line2, 3, 0, 1, 2)
 
-        self.currentConditionsTextEdit = QTextEdit(self.centralwidget)
-        self.currentConditionsTextEdit.setObjectName("currentConditionsTextEdit")
-        sizePolicy3.setHeightForWidth(
-            self.currentConditionsTextEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.currentConditionsTextEdit.setSizePolicy(sizePolicy3)
-        self.currentConditionsTextEdit.setMinimumSize(QSize(410, 90))
-        self.currentConditionsTextEdit.setMaximumSize(QSize(16777215, 16777215))
-        self.currentConditionsTextEdit.setFont(font1)
-        self.currentConditionsTextEdit.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-        self.currentConditionsTextEdit.setHorizontalScrollBarPolicy(
-            Qt.ScrollBarAsNeeded
-        )
-        self.currentConditionsTextEdit.setSizeAdjustPolicy(
-            QAbstractScrollArea.AdjustIgnored
-        )
-        self.currentConditionsTextEdit.setTabChangesFocus(True)
-        self.currentConditionsTextEdit.setLineWrapMode(QTextEdit.NoWrap)
+        self.line14 = QFrame(self.centralwidget)
+        self.line14.setObjectName(u"line14")
+        sizePolicy1.setHeightForWidth(self.line14.sizePolicy().hasHeightForWidth())
+        self.line14.setSizePolicy(sizePolicy1)
+        self.line14.setMinimumSize(QSize(662, 1))
+        self.line14.setMaximumSize(QSize(662, 1))
+        self.line14.setFont(font1)
+        self.line14.setLayoutDirection(Qt.LeftToRight)
+        self.line14.setFrameShadow(QFrame.Plain)
+        self.line14.setFrameShape(QFrame.HLine)
 
-        self.mainApp.addWidget(self.currentConditionsTextEdit, 20, 1, 1, 1)
-
-        self.line13 = QFrame(self.centralwidget)
-        self.line13.setObjectName("line13")
-        sizePolicy1.setHeightForWidth(self.line13.sizePolicy().hasHeightForWidth())
-        self.line13.setSizePolicy(sizePolicy1)
-        self.line13.setMinimumSize(QSize(1, 1))
-        self.line13.setFont(font1)
-        self.line13.setLayoutDirection(Qt.LeftToRight)
-        self.line13.setFrameShadow(QFrame.Plain)
-        self.line13.setFrameShape(QFrame.HLine)
-
-        self.mainApp.addWidget(self.line13, 27, 0, 1, 2)
+        self.mainApp.addWidget(self.line14, 27, 0, 1, 2)
 
         self.heightLineEdit = QLineEdit(self.centralwidget)
-        self.heightLineEdit.setObjectName("heightLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.heightLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.heightLineEdit.setSizePolicy(sizePolicy3)
-        self.heightLineEdit.setMinimumSize(QSize(410, 0))
+        self.heightLineEdit.setObjectName(u"heightLineEdit")
+        sizePolicy1.setHeightForWidth(self.heightLineEdit.sizePolicy().hasHeightForWidth())
+        self.heightLineEdit.setSizePolicy(sizePolicy1)
+        self.heightLineEdit.setMinimumSize(QSize(412, 29))
+        self.heightLineEdit.setMaximumSize(QSize(412, 29))
         self.heightLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.heightLineEdit, 12, 1, 1, 1)
 
         self.reasonForReferralLabel = QLabel(self.centralwidget)
-        self.reasonForReferralLabel.setObjectName("reasonForReferralLabel")
-        sizePolicy2.setHeightForWidth(
-            self.reasonForReferralLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.reasonForReferralLabel.setSizePolicy(sizePolicy2)
-        self.reasonForReferralLabel.setMinimumSize(QSize(230, 0))
+        self.reasonForReferralLabel.setObjectName(u"reasonForReferralLabel")
+        sizePolicy1.setHeightForWidth(self.reasonForReferralLabel.sizePolicy().hasHeightForWidth())
+        self.reasonForReferralLabel.setSizePolicy(sizePolicy1)
+        self.reasonForReferralLabel.setMinimumSize(QSize(230, 29))
+        self.reasonForReferralLabel.setMaximumSize(QSize(230, 29))
         self.reasonForReferralLabel.setFont(font1)
 
         self.mainApp.addWidget(self.reasonForReferralLabel, 30, 0, 1, 1)
 
         self.doctorProviderNumberLineEdit = QLineEdit(self.centralwidget)
-        self.doctorProviderNumberLineEdit.setObjectName("doctorProviderNumberLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.doctorProviderNumberLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.doctorProviderNumberLineEdit.setSizePolicy(sizePolicy3)
-        self.doctorProviderNumberLineEdit.setMinimumSize(QSize(410, 0))
+        self.doctorProviderNumberLineEdit.setObjectName(u"doctorProviderNumberLineEdit")
+        sizePolicy1.setHeightForWidth(self.doctorProviderNumberLineEdit.sizePolicy().hasHeightForWidth())
+        self.doctorProviderNumberLineEdit.setSizePolicy(sizePolicy1)
+        self.doctorProviderNumberLineEdit.setMinimumSize(QSize(412, 29))
+        self.doctorProviderNumberLineEdit.setMaximumSize(QSize(412, 29))
         self.doctorProviderNumberLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.doctorProviderNumberLineEdit, 26, 1, 1, 1)
 
         self.line5 = QFrame(self.centralwidget)
-        self.line5.setObjectName("line5")
+        self.line5.setObjectName(u"line5")
         sizePolicy1.setHeightForWidth(self.line5.sizePolicy().hasHeightForWidth())
         self.line5.setSizePolicy(sizePolicy1)
-        self.line5.setMinimumSize(QSize(1, 1))
+        self.line5.setMinimumSize(QSize(662, 1))
+        self.line5.setMaximumSize(QSize(662, 1))
         self.line5.setFont(font1)
         self.line5.setLayoutDirection(Qt.LeftToRight)
         self.line5.setFrameShadow(QFrame.Plain)
@@ -509,10 +407,11 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line5, 9, 0, 1, 2)
 
         self.line1 = QFrame(self.centralwidget)
-        self.line1.setObjectName("line1")
+        self.line1.setObjectName(u"line1")
         sizePolicy1.setHeightForWidth(self.line1.sizePolicy().hasHeightForWidth())
         self.line1.setSizePolicy(sizePolicy1)
-        self.line1.setMinimumSize(QSize(1, 1))
+        self.line1.setMinimumSize(QSize(662, 1))
+        self.line1.setMaximumSize(QSize(662, 1))
         self.line1.setFont(font1)
         self.line1.setLayoutDirection(Qt.LeftToRight)
         self.line1.setFrameShadow(QFrame.Plain)
@@ -521,30 +420,34 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line1, 1, 0, 1, 2)
 
         self.weightLabel = QLabel(self.centralwidget)
-        self.weightLabel.setObjectName("weightLabel")
+        self.weightLabel.setObjectName(u"weightLabel")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.weightLabel.sizePolicy().hasHeightForWidth())
         self.weightLabel.setSizePolicy(sizePolicy2)
-        self.weightLabel.setMinimumSize(QSize(230, 0))
+        self.weightLabel.setMinimumSize(QSize(230, 29))
+        self.weightLabel.setMaximumSize(QSize(230, 29))
         self.weightLabel.setFont(font1)
 
         self.mainApp.addWidget(self.weightLabel, 10, 0, 1, 1)
 
         self.requestDateLabel = QLabel(self.centralwidget)
-        self.requestDateLabel.setObjectName("requestDateLabel")
-        sizePolicy2.setHeightForWidth(
-            self.requestDateLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.requestDateLabel.setSizePolicy(sizePolicy2)
-        self.requestDateLabel.setMinimumSize(QSize(230, 0))
+        self.requestDateLabel.setObjectName(u"requestDateLabel")
+        sizePolicy1.setHeightForWidth(self.requestDateLabel.sizePolicy().hasHeightForWidth())
+        self.requestDateLabel.setSizePolicy(sizePolicy1)
+        self.requestDateLabel.setMinimumSize(QSize(230, 29))
+        self.requestDateLabel.setMaximumSize(QSize(230, 29))
         self.requestDateLabel.setFont(font1)
 
         self.mainApp.addWidget(self.requestDateLabel, 32, 0, 1, 1)
 
         self.line7 = QFrame(self.centralwidget)
-        self.line7.setObjectName("line7")
+        self.line7.setObjectName(u"line7")
         sizePolicy1.setHeightForWidth(self.line7.sizePolicy().hasHeightForWidth())
         self.line7.setSizePolicy(sizePolicy1)
-        self.line7.setMinimumSize(QSize(1, 1))
+        self.line7.setMinimumSize(QSize(662, 1))
+        self.line7.setMaximumSize(QSize(662, 1))
         self.line7.setFont(font1)
         self.line7.setLayoutDirection(Qt.LeftToRight)
         self.line7.setFrameShadow(QFrame.Plain)
@@ -553,10 +456,11 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line7, 13, 0, 1, 2)
 
         self.line11 = QFrame(self.centralwidget)
-        self.line11.setObjectName("line11")
+        self.line11.setObjectName(u"line11")
         sizePolicy1.setHeightForWidth(self.line11.sizePolicy().hasHeightForWidth())
         self.line11.setSizePolicy(sizePolicy1)
-        self.line11.setMinimumSize(QSize(1, 1))
+        self.line11.setMinimumSize(QSize(662, 1))
+        self.line11.setMaximumSize(QSize(662, 1))
         self.line11.setFont(font1)
         self.line11.setLayoutDirection(Qt.LeftToRight)
         self.line11.setFrameShadow(QFrame.Plain)
@@ -565,109 +469,108 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line11, 21, 0, 1, 2)
 
         self.doctorFullNameLineEdit = QLineEdit(self.centralwidget)
-        self.doctorFullNameLineEdit.setObjectName("doctorFullNameLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.doctorFullNameLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.doctorFullNameLineEdit.setSizePolicy(sizePolicy3)
-        self.doctorFullNameLineEdit.setMinimumSize(QSize(410, 0))
+        self.doctorFullNameLineEdit.setObjectName(u"doctorFullNameLineEdit")
+        sizePolicy1.setHeightForWidth(self.doctorFullNameLineEdit.sizePolicy().hasHeightForWidth())
+        self.doctorFullNameLineEdit.setSizePolicy(sizePolicy1)
+        self.doctorFullNameLineEdit.setMinimumSize(QSize(412, 29))
+        self.doctorFullNameLineEdit.setMaximumSize(QSize(412, 29))
         self.doctorFullNameLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.doctorFullNameLineEdit, 24, 1, 1, 1)
 
         self.fullNameLabel = QLabel(self.centralwidget)
-        self.fullNameLabel.setObjectName("fullNameLabel")
-        sizePolicy2.setHeightForWidth(
-            self.fullNameLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.fullNameLabel.setSizePolicy(sizePolicy2)
-        self.fullNameLabel.setMinimumSize(QSize(230, 0))
+        self.fullNameLabel.setObjectName(u"fullNameLabel")
+        sizePolicy1.setHeightForWidth(self.fullNameLabel.sizePolicy().hasHeightForWidth())
+        self.fullNameLabel.setSizePolicy(sizePolicy1)
+        self.fullNameLabel.setMinimumSize(QSize(230, 29))
+        self.fullNameLabel.setMaximumSize(QSize(230, 29))
         self.fullNameLabel.setFont(font1)
 
         self.mainApp.addWidget(self.fullNameLabel, 2, 0, 1, 1)
 
         self.heightLabel = QLabel(self.centralwidget)
-        self.heightLabel.setObjectName("heightLabel")
-        sizePolicy2.setHeightForWidth(self.heightLabel.sizePolicy().hasHeightForWidth())
-        self.heightLabel.setSizePolicy(sizePolicy2)
-        self.heightLabel.setMinimumSize(QSize(230, 0))
+        self.heightLabel.setObjectName(u"heightLabel")
+        sizePolicy1.setHeightForWidth(self.heightLabel.sizePolicy().hasHeightForWidth())
+        self.heightLabel.setSizePolicy(sizePolicy1)
+        self.heightLabel.setMinimumSize(QSize(230, 29))
+        self.heightLabel.setMaximumSize(QSize(230, 29))
         self.heightLabel.setFont(font1)
 
         self.mainApp.addWidget(self.heightLabel, 12, 0, 1, 1)
 
         self.doctorFullNameLabel = QLabel(self.centralwidget)
-        self.doctorFullNameLabel.setObjectName("doctorFullNameLabel")
-        sizePolicy2.setHeightForWidth(
-            self.doctorFullNameLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.doctorFullNameLabel.setSizePolicy(sizePolicy2)
-        self.doctorFullNameLabel.setMinimumSize(QSize(230, 0))
+        self.doctorFullNameLabel.setObjectName(u"doctorFullNameLabel")
+        sizePolicy1.setHeightForWidth(self.doctorFullNameLabel.sizePolicy().hasHeightForWidth())
+        self.doctorFullNameLabel.setSizePolicy(sizePolicy1)
+        self.doctorFullNameLabel.setMinimumSize(QSize(230, 29))
+        self.doctorFullNameLabel.setMaximumSize(QSize(230, 29))
         self.doctorFullNameLabel.setFont(font1)
 
         self.mainApp.addWidget(self.doctorFullNameLabel, 24, 0, 1, 1)
 
         self.medicareNumberLineEdit = QLineEdit(self.centralwidget)
-        self.medicareNumberLineEdit.setObjectName("medicareNumberLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.medicareNumberLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.medicareNumberLineEdit.setSizePolicy(sizePolicy3)
-        self.medicareNumberLineEdit.setMinimumSize(QSize(410, 0))
+        self.medicareNumberLineEdit.setObjectName(u"medicareNumberLineEdit")
+        sizePolicy1.setHeightForWidth(self.medicareNumberLineEdit.sizePolicy().hasHeightForWidth())
+        self.medicareNumberLineEdit.setSizePolicy(sizePolicy1)
+        self.medicareNumberLineEdit.setMinimumSize(QSize(412, 29))
+        self.medicareNumberLineEdit.setMaximumSize(QSize(412, 29))
         self.medicareNumberLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.medicareNumberLineEdit, 8, 1, 1, 1)
 
         self.requestDateDateEdit = QDateEdit(self.centralwidget)
-        self.requestDateDateEdit.setObjectName("requestDateDateEdit")
-        sizePolicy3.setHeightForWidth(
-            self.requestDateDateEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.requestDateDateEdit.setSizePolicy(sizePolicy3)
-        self.requestDateDateEdit.setMinimumSize(QSize(410, 0))
+        self.requestDateDateEdit.setObjectName(u"requestDateDateEdit")
+        sizePolicy1.setHeightForWidth(self.requestDateDateEdit.sizePolicy().hasHeightForWidth())
+        self.requestDateDateEdit.setSizePolicy(sizePolicy1)
+        self.requestDateDateEdit.setMinimumSize(QSize(412, 29))
+        self.requestDateDateEdit.setMaximumSize(QSize(412, 29))
         self.requestDateDateEdit.setFont(font1)
         self.requestDateDateEdit.setCalendarPopup(True)
 
         self.mainApp.addWidget(self.requestDateDateEdit, 32, 1, 1, 1)
 
         self.fullNameLineEdit = QLineEdit(self.centralwidget)
-        self.fullNameLineEdit.setObjectName("fullNameLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.fullNameLineEdit.sizePolicy().hasHeightForWidth()
-        )
-        self.fullNameLineEdit.setSizePolicy(sizePolicy3)
-        self.fullNameLineEdit.setMinimumSize(QSize(410, 0))
+        self.fullNameLineEdit.setObjectName(u"fullNameLineEdit")
+        sizePolicy1.setHeightForWidth(self.fullNameLineEdit.sizePolicy().hasHeightForWidth())
+        self.fullNameLineEdit.setSizePolicy(sizePolicy1)
+        self.fullNameLineEdit.setMinimumSize(QSize(412, 29))
+        self.fullNameLineEdit.setMaximumSize(QSize(412, 29))
         self.fullNameLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.fullNameLineEdit, 2, 1, 1, 1)
 
         self.weightLineEdit = QLineEdit(self.centralwidget)
-        self.weightLineEdit.setObjectName("weightLineEdit")
-        sizePolicy3.setHeightForWidth(
-            self.weightLineEdit.sizePolicy().hasHeightForWidth()
-        )
+        self.weightLineEdit.setObjectName(u"weightLineEdit")
+        sizePolicy3 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.weightLineEdit.sizePolicy().hasHeightForWidth())
         self.weightLineEdit.setSizePolicy(sizePolicy3)
-        self.weightLineEdit.setMinimumSize(QSize(410, 0))
+        self.weightLineEdit.setMinimumSize(QSize(412, 29))
+        self.weightLineEdit.setMaximumSize(QSize(412, 29))
         self.weightLineEdit.setFont(font1)
 
         self.mainApp.addWidget(self.weightLineEdit, 10, 1, 1, 1)
 
-        self.line15 = QFrame(self.centralwidget)
-        self.line15.setObjectName("line15")
-        sizePolicy1.setHeightForWidth(self.line15.sizePolicy().hasHeightForWidth())
-        self.line15.setSizePolicy(sizePolicy1)
-        self.line15.setMinimumSize(QSize(1, 1))
-        self.line15.setFont(font1)
-        self.line15.setLayoutDirection(Qt.LeftToRight)
-        self.line15.setFrameShadow(QFrame.Plain)
-        self.line15.setFrameShape(QFrame.HLine)
+        self.line16 = QFrame(self.centralwidget)
+        self.line16.setObjectName(u"line16")
+        sizePolicy1.setHeightForWidth(self.line16.sizePolicy().hasHeightForWidth())
+        self.line16.setSizePolicy(sizePolicy1)
+        self.line16.setMinimumSize(QSize(662, 1))
+        self.line16.setMaximumSize(QSize(662, 1))
+        self.line16.setFont(font1)
+        self.line16.setLayoutDirection(Qt.LeftToRight)
+        self.line16.setFrameShadow(QFrame.Plain)
+        self.line16.setFrameShape(QFrame.HLine)
 
-        self.mainApp.addWidget(self.line15, 31, 0, 1, 2)
+        self.mainApp.addWidget(self.line16, 31, 0, 1, 2)
 
         self.line8 = QFrame(self.centralwidget)
-        self.line8.setObjectName("line8")
+        self.line8.setObjectName(u"line8")
         sizePolicy1.setHeightForWidth(self.line8.sizePolicy().hasHeightForWidth())
         self.line8.setSizePolicy(sizePolicy1)
-        self.line8.setMinimumSize(QSize(1, 1))
+        self.line8.setMinimumSize(QSize(662, 1))
+        self.line8.setMaximumSize(QSize(662, 1))
         self.line8.setFont(font1)
         self.line8.setLayoutDirection(Qt.LeftToRight)
         self.line8.setFrameShadow(QFrame.Plain)
@@ -676,10 +579,11 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line8, 15, 0, 1, 2)
 
         self.line4 = QFrame(self.centralwidget)
-        self.line4.setObjectName("line4")
+        self.line4.setObjectName(u"line4")
         sizePolicy1.setHeightForWidth(self.line4.sizePolicy().hasHeightForWidth())
         self.line4.setSizePolicy(sizePolicy1)
-        self.line4.setMinimumSize(QSize(1, 1))
+        self.line4.setMinimumSize(QSize(662, 1))
+        self.line4.setMaximumSize(QSize(662, 1))
         self.line4.setFont(font1)
         self.line4.setLayoutDirection(Qt.LeftToRight)
         self.line4.setFrameShadow(QFrame.Plain)
@@ -688,37 +592,128 @@ class Ui_MainWindow(object):
         self.mainApp.addWidget(self.line4, 7, 0, 1, 2)
 
         self.doctorPreferredContactLabel = QLabel(self.centralwidget)
-        self.doctorPreferredContactLabel.setObjectName("doctorPreferredContactLabel")
-        sizePolicy2.setHeightForWidth(
-            self.doctorPreferredContactLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.doctorPreferredContactLabel.setSizePolicy(sizePolicy2)
-        self.doctorPreferredContactLabel.setMinimumSize(QSize(230, 0))
+        self.doctorPreferredContactLabel.setObjectName(u"doctorPreferredContactLabel")
+        sizePolicy1.setHeightForWidth(self.doctorPreferredContactLabel.sizePolicy().hasHeightForWidth())
+        self.doctorPreferredContactLabel.setSizePolicy(sizePolicy1)
+        self.doctorPreferredContactLabel.setMinimumSize(QSize(230, 29))
+        self.doctorPreferredContactLabel.setMaximumSize(QSize(230, 29))
         self.doctorPreferredContactLabel.setFont(font1)
 
         self.mainApp.addWidget(self.doctorPreferredContactLabel, 28, 0, 1, 1)
 
         self.currentConditionsLabel = QLabel(self.centralwidget)
-        self.currentConditionsLabel.setObjectName("currentConditionsLabel")
-        sizePolicy2.setHeightForWidth(
-            self.currentConditionsLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.currentConditionsLabel.setSizePolicy(sizePolicy2)
-        self.currentConditionsLabel.setMinimumSize(QSize(230, 0))
+        self.currentConditionsLabel.setObjectName(u"currentConditionsLabel")
+        sizePolicy1.setHeightForWidth(self.currentConditionsLabel.sizePolicy().hasHeightForWidth())
+        self.currentConditionsLabel.setSizePolicy(sizePolicy1)
+        self.currentConditionsLabel.setMinimumSize(QSize(230, 163))
+        self.currentConditionsLabel.setMaximumSize(QSize(230, 163))
         self.currentConditionsLabel.setFont(font1)
 
-        self.mainApp.addWidget(self.currentConditionsLabel, 20, 0, 1, 1)
+        self.mainApp.addWidget(self.currentConditionsLabel, 20, 0, 1, 1, Qt.AlignLeft)
 
         self.creatineLabel = QLabel(self.centralwidget)
-        self.creatineLabel.setObjectName("creatineLabel")
-        sizePolicy2.setHeightForWidth(
-            self.creatineLabel.sizePolicy().hasHeightForWidth()
-        )
-        self.creatineLabel.setSizePolicy(sizePolicy2)
-        self.creatineLabel.setMinimumSize(QSize(230, 0))
+        self.creatineLabel.setObjectName(u"creatineLabel")
+        sizePolicy1.setHeightForWidth(self.creatineLabel.sizePolicy().hasHeightForWidth())
+        self.creatineLabel.setSizePolicy(sizePolicy1)
+        self.creatineLabel.setMinimumSize(QSize(230, 29))
+        self.creatineLabel.setMaximumSize(QSize(230, 29))
         self.creatineLabel.setFont(font1)
 
         self.mainApp.addWidget(self.creatineLabel, 16, 0, 1, 1)
+
+        self.titleWidget = QWidget(self.centralwidget)
+        self.titleWidget.setObjectName(u"titleWidget")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.titleWidget.sizePolicy().hasHeightForWidth())
+        self.titleWidget.setSizePolicy(sizePolicy4)
+        self.titleWidget.setMinimumSize(QSize(670, 160))
+        self.titleGridLayout = QGridLayout(self.titleWidget)
+        self.titleGridLayout.setSpacing(0)
+        self.titleGridLayout.setContentsMargins(9, 9, 9, 9)
+        self.titleGridLayout.setObjectName(u"titleGridLayout")
+        self.titleGridLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setSpacing(0)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.runModeComboBox = QComboBox(self.titleWidget)
+        self.runModeComboBox.setObjectName(u"runModeComboBox")
+        sizePolicy4.setHeightForWidth(self.runModeComboBox.sizePolicy().hasHeightForWidth())
+        self.runModeComboBox.setSizePolicy(sizePolicy4)
+        self.runModeComboBox.setMinimumSize(QSize(170, 29))
+        self.runModeComboBox.setMaximumSize(QSize(170, 29))
+        self.runModeComboBox.setFont(font1)
+        self.runModeComboBox.setFrame(True)
+
+        self.verticalLayout.addWidget(self.runModeComboBox)
+
+        self.loadFilesButton = QPushButton(self.titleWidget)
+        self.loadFilesButton.setObjectName(u"loadFilesButton")
+        sizePolicy4.setHeightForWidth(self.loadFilesButton.sizePolicy().hasHeightForWidth())
+        self.loadFilesButton.setSizePolicy(sizePolicy4)
+        self.loadFilesButton.setMinimumSize(QSize(170, 31))
+        self.loadFilesButton.setMaximumSize(QSize(170, 31))
+        self.loadFilesButton.setFont(font1)
+
+        self.verticalLayout.addWidget(self.loadFilesButton)
+
+        self.saveFilesButton = QPushButton(self.titleWidget)
+        self.saveFilesButton.setObjectName(u"saveFilesButton")
+        sizePolicy4.setHeightForWidth(self.saveFilesButton.sizePolicy().hasHeightForWidth())
+        self.saveFilesButton.setSizePolicy(sizePolicy4)
+        self.saveFilesButton.setMinimumSize(QSize(170, 31))
+        self.saveFilesButton.setMaximumSize(QSize(170, 31))
+        self.saveFilesButton.setFont(font1)
+
+        self.verticalLayout.addWidget(self.saveFilesButton)
+
+
+        self.titleGridLayout.addLayout(self.verticalLayout, 0, 1, 4, 1)
+
+        self.titleText = QLabel(self.titleWidget)
+        self.titleText.setObjectName(u"titleText")
+        sizePolicy5 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Minimum)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.titleText.sizePolicy().hasHeightForWidth())
+        self.titleText.setSizePolicy(sizePolicy5)
+        self.titleText.setMinimumSize(QSize(0, 0))
+        self.titleText.setMaximumSize(QSize(10000, 10000))
+        font2 = QFont()
+        font2.setFamilies([u"Open Sans"])
+        font2.setPointSize(20)
+        self.titleText.setFont(font2)
+        self.titleText.setIndent(10)
+
+        self.titleGridLayout.addWidget(self.titleText, 1, 0, 1, 1)
+
+        self.subtitleText = QLabel(self.titleWidget)
+        self.subtitleText.setObjectName(u"subtitleText")
+        self.subtitleText.setMargin(3)
+        self.subtitleText.setIndent(7)
+
+        self.titleGridLayout.addWidget(self.subtitleText, 2, 0, 1, 1)
+
+
+        self.mainApp.addWidget(self.titleWidget, 0, 0, 1, 2)
+
+        self.currentConditionsTextEdit = QTextEdit(self.centralwidget)
+        self.currentConditionsTextEdit.setObjectName(u"currentConditionsTextEdit")
+        sizePolicy1.setHeightForWidth(self.currentConditionsTextEdit.sizePolicy().hasHeightForWidth())
+        self.currentConditionsTextEdit.setSizePolicy(sizePolicy1)
+        self.currentConditionsTextEdit.setMinimumSize(QSize(412, 163))
+        self.currentConditionsTextEdit.setMaximumSize(QSize(412, 163))
+        self.currentConditionsTextEdit.setFont(font1)
+        self.currentConditionsTextEdit.setFocusPolicy(Qt.ClickFocus)
+        self.currentConditionsTextEdit.setFrameShape(QFrame.StyledPanel)
+        self.currentConditionsTextEdit.setFrameShadow(QFrame.Plain)
+        self.currentConditionsTextEdit.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+        self.currentConditionsTextEdit.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
+        self.currentConditionsTextEdit.setSizeAdjustPolicy(QAbstractScrollArea.AdjustIgnored)
+
+        self.mainApp.addWidget(self.currentConditionsTextEdit, 20, 1, 1, 1)
 
         self.mainApp.setColumnStretch(0, 1)
         self.mainApp.setColumnStretch(1, 1)
@@ -726,7 +721,7 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addLayout(self.mainApp, 0, 0, 1, 1)
 
         MainWindow.setCentralWidget(self.centralwidget)
-        # if QT_CONFIG(shortcut)
+#if QT_CONFIG(shortcut)
         self.bloodPressureLabel.setBuddy(self.bloodPressureLineEdit)
         self.addressLabel.setBuddy(self.addressLineEdit)
         self.medicationsLabel.setBuddy(self.currentConditionsTextEdit)
@@ -741,9 +736,8 @@ class Ui_MainWindow(object):
         self.heightLabel.setBuddy(self.heightLineEdit)
         self.doctorFullNameLabel.setBuddy(self.doctorFullNameLineEdit)
         self.doctorPreferredContactLabel.setBuddy(self.doctorPreferredContactLineEdit)
-        self.currentConditionsLabel.setBuddy(self.currentConditionsTextEdit)
         self.creatineLabel.setBuddy(self.creatineLineEdit)
-        # endif // QT_CONFIG(shortcut)
+#endif // QT_CONFIG(shortcut)
         QWidget.setTabOrder(self.fullNameLineEdit, self.dOBDateEdit)
         QWidget.setTabOrder(self.dOBDateEdit, self.addressLineEdit)
         QWidget.setTabOrder(self.addressLineEdit, self.medicareNumberLineEdit)
@@ -754,79 +748,37 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.creatineLineEdit, self.crClLineEdit)
         QWidget.setTabOrder(self.crClLineEdit, self.currentConditionsTextEdit)
         QWidget.setTabOrder(self.currentConditionsTextEdit, self.doctorFullNameLineEdit)
-        QWidget.setTabOrder(
-            self.doctorFullNameLineEdit, self.doctorProviderNumberLineEdit
-        )
-        QWidget.setTabOrder(
-            self.doctorProviderNumberLineEdit, self.doctorPreferredContactLineEdit
-        )
-        QWidget.setTabOrder(
-            self.doctorPreferredContactLineEdit, self.reasonForReferralLineEdit
-        )
+        QWidget.setTabOrder(self.doctorFullNameLineEdit, self.doctorProviderNumberLineEdit)
+        QWidget.setTabOrder(self.doctorProviderNumberLineEdit, self.doctorPreferredContactLineEdit)
+        QWidget.setTabOrder(self.doctorPreferredContactLineEdit, self.reasonForReferralLineEdit)
         QWidget.setTabOrder(self.reasonForReferralLineEdit, self.requestDateDateEdit)
 
         self.retranslateUi(MainWindow)
 
         QMetaObject.connectSlotsByName(MainWindow)
-
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(
-            QCoreApplication.translate("MainWindow", "MainWindow", None)
-        )
-        self.bloodPressureLabel.setText(
-            QCoreApplication.translate("MainWindow", "Blood Pressure", None)
-        )
-        self.getInformationButton.setText(
-            QCoreApplication.translate("MainWindow", "Populate Fields", None)
-        )
-        self.createDocumentButton.setText(
-            QCoreApplication.translate("MainWindow", "Create Document", None)
-        )
-        self.TitleText.setText(
-            QCoreApplication.translate("MainWindow", "DMMR Report Generator", None)
-        )
-        self.addressLabel.setText(
-            QCoreApplication.translate("MainWindow", "Address", None)
-        )
-        self.medicationsLabel.setText(
-            QCoreApplication.translate("MainWindow", "Medications", None)
-        )
-        self.doctorProviderNumberLabel.setText(
-            QCoreApplication.translate("MainWindow", "Doctor Provider Number", None)
-        )
-        self.medicareNumberLabel.setText(
-            QCoreApplication.translate("MainWindow", "Medicare Number", None)
-        )
-        self.crClLabel.setText(QCoreApplication.translate("MainWindow", "CrCl", None))
-        self.dOBLabel.setText(QCoreApplication.translate("MainWindow", "DOB", None))
-        self.reasonForReferralLabel.setText(
-            QCoreApplication.translate("MainWindow", "Reason for Referral", None)
-        )
-        self.weightLabel.setText(
-            QCoreApplication.translate("MainWindow", "Weight", None)
-        )
-        self.requestDateLabel.setText(
-            QCoreApplication.translate("MainWindow", "Request Date", None)
-        )
-        self.fullNameLabel.setText(
-            QCoreApplication.translate("MainWindow", "Full Name", None)
-        )
-        self.heightLabel.setText(
-            QCoreApplication.translate("MainWindow", "Height", None)
-        )
-        self.doctorFullNameLabel.setText(
-            QCoreApplication.translate("MainWindow", "Doctor Full name", None)
-        )
-        self.doctorPreferredContactLabel.setText(
-            QCoreApplication.translate("MainWindow", "Doctor Preferred Contact", None)
-        )
-        self.currentConditionsLabel.setText(
-            QCoreApplication.translate("MainWindow", "Current Conditions", None)
-        )
-        self.creatineLabel.setText(
-            QCoreApplication.translate("MainWindow", "Creatine", None)
-        )
-
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.bloodPressureLabel.setText(QCoreApplication.translate("MainWindow", u"Blood Pressure", None))
+        self.addressLabel.setText(QCoreApplication.translate("MainWindow", u"Address", None))
+        self.medicationsLabel.setText(QCoreApplication.translate("MainWindow", u"Medications", None))
+        self.doctorProviderNumberLabel.setText(QCoreApplication.translate("MainWindow", u"Doctor Provider Number", None))
+        self.medicareNumberLabel.setText(QCoreApplication.translate("MainWindow", u"Medicare Number", None))
+        self.crClLabel.setText(QCoreApplication.translate("MainWindow", u"CrCl", None))
+        self.dOBLabel.setText(QCoreApplication.translate("MainWindow", u"DOB", None))
+        self.reasonForReferralLabel.setText(QCoreApplication.translate("MainWindow", u"Reason for Referral", None))
+        self.weightLabel.setText(QCoreApplication.translate("MainWindow", u"Weight", None))
+        self.requestDateLabel.setText(QCoreApplication.translate("MainWindow", u"Request Date", None))
+        self.fullNameLabel.setText(QCoreApplication.translate("MainWindow", u"Full Name", None))
+        self.heightLabel.setText(QCoreApplication.translate("MainWindow", u"Height", None))
+        self.doctorFullNameLabel.setText(QCoreApplication.translate("MainWindow", u"Doctor Full name", None))
+        self.doctorPreferredContactLabel.setText(QCoreApplication.translate("MainWindow", u"Doctor Preferred Contact", None))
+        self.currentConditionsLabel.setText(QCoreApplication.translate("MainWindow", u"Current Conditions", None))
+        self.creatineLabel.setText(QCoreApplication.translate("MainWindow", u"Creatine", None))
+        self.loadFilesButton.setText(QCoreApplication.translate("MainWindow", u"Load File", None))
+        self.saveFilesButton.setText(QCoreApplication.translate("MainWindow", u"Create Document", None))
+        self.titleText.setText(QCoreApplication.translate("MainWindow", u"DMMR Report Generator", None))
+        self.subtitleText.setText(QCoreApplication.translate("MainWindow", u"Load a file to Start", None))
     # retranslateUi
+

@@ -4,32 +4,32 @@
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>700</width>
-    <height>1240</height>
+    <width>716</width>
+    <height>1285</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+   <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
   <property name="minimumSize">
    <size>
-    <width>700</width>
-    <height>1240</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>700</width>
-    <height>1269</height>
+    <width>100000</width>
+    <height>100000</height>
    </size>
   </property>
   <property name="font">
@@ -45,25 +45,34 @@
    <enum>Qt::ToolButtonTextBesideIcon</enum>
   </property>
   <property name="documentMode">
-   <bool>true</bool>
+   <bool>false</bool>
   </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
+  </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="enabled">
     <bool>true</bool>
    </property>
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
    <property name="maximumSize">
     <size>
-     <width>10000</width>
-     <height>10000</height>
+     <width>100000</width>
+     <height>100000</height>
     </size>
    </property>
    <property name="font">
@@ -111,14 +120,20 @@
       <item row="17" column="0" colspan="2">
        <widget class="Line" name="line9">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -142,7 +157,7 @@
       <item row="14" column="0">
        <widget class="QLabel" name="bloodPressureLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -150,7 +165,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -170,15 +191,21 @@
       <item row="14" column="1">
        <widget class="QLineEdit" name="bloodPressureLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -192,14 +219,20 @@
       <item row="19" column="0" colspan="2">
        <widget class="Line" name="line10">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -221,16 +254,22 @@
        </widget>
       </item>
       <item row="23" column="0" colspan="2">
-       <widget class="Line" name="line11_2">
+       <widget class="Line" name="line12">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -251,128 +290,24 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="0" colspan="2">
-       <layout class="QGridLayout" name="titleGridLayout">
-        <property name="bottomMargin">
-         <number>0</number>
-        </property>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="getInformationButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>170</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Open Sans</family>
-            <pointsize>13</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Populate Fields</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="createDocumentButton">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>170</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Open Sans</family>
-            <pointsize>13</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Create Document</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QComboBox" name="templateSelectorComboBox">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>170</width>
-            <height>28</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Open Sans</family>
-            <pointsize>13</pointsize>
-           </font>
-          </property>
-          <property name="frame">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="0" rowspan="3">
-         <widget class="QLabel" name="TitleText">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
-            <horstretch>1</horstretch>
-            <verstretch>1</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>120</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>Open Sans</family>
-            <pointsize>20</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>DMMR Report Generator</string>
-          </property>
-          <property name="indent">
-           <number>10</number>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
       <item row="28" column="1">
        <widget class="QLineEdit" name="doctorPreferredContactLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -386,15 +321,21 @@
       <item row="18" column="1">
        <widget class="QLineEdit" name="crClLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -408,7 +349,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="addressLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -416,7 +357,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -436,7 +383,7 @@
       <item row="22" column="0">
        <widget class="QLabel" name="medicationsLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -444,7 +391,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>164</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>164</height>
          </size>
         </property>
         <property name="font">
@@ -462,16 +415,22 @@
        </widget>
       </item>
       <item row="33" column="0" colspan="2">
-       <widget class="Line" name="line16">
+       <widget class="Line" name="line17">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -493,16 +452,22 @@
        </widget>
       </item>
       <item row="29" column="0" colspan="2">
-       <widget class="Line" name="line14">
+       <widget class="Line" name="line15">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -526,15 +491,21 @@
       <item row="16" column="1">
        <widget class="QLineEdit" name="creatineLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -546,16 +517,22 @@
        </widget>
       </item>
       <item row="25" column="0" colspan="2">
-       <widget class="Line" name="line12">
+       <widget class="Line" name="line13">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -579,15 +556,21 @@
       <item row="30" column="1">
        <widget class="QLineEdit" name="reasonForReferralLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -601,7 +584,7 @@
       <item row="26" column="0">
        <widget class="QLabel" name="doctorProviderNumberLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -609,7 +592,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -629,7 +618,7 @@
       <item row="8" column="0">
        <widget class="QLabel" name="medicareNumberLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -637,7 +626,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -657,21 +652,21 @@
       <item row="22" column="1">
        <widget class="QTextEdit" name="medicationsTextEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>90</height>
+          <width>412</width>
+          <height>164</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
-          <height>16777215</height>
+          <width>412</width>
+          <height>164</height>
          </size>
         </property>
         <property name="font">
@@ -679,6 +674,15 @@
           <family>Open Sans</family>
           <pointsize>13</pointsize>
          </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
         </property>
         <property name="verticalScrollBarPolicy">
          <enum>Qt::ScrollBarAlwaysOn</enum>
@@ -700,15 +704,21 @@
       <item row="4" column="1">
        <widget class="QDateEdit" name="dOBDateEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -734,7 +744,7 @@
       <item row="18" column="0">
        <widget class="QLabel" name="crClLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -742,7 +752,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -762,14 +778,20 @@
       <item row="5" column="0" colspan="2">
        <widget class="Line" name="line3">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -793,15 +815,21 @@
       <item row="6" column="1">
        <widget class="QLineEdit" name="addressLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -815,14 +843,20 @@
       <item row="11" column="0" colspan="2">
        <widget class="Line" name="line6">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -846,7 +880,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="dOBLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -854,7 +888,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -874,14 +914,20 @@
       <item row="3" column="0" colspan="2">
        <widget class="Line" name="line2">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -902,60 +948,23 @@
         </property>
        </widget>
       </item>
-      <item row="20" column="1">
-       <widget class="QTextEdit" name="currentConditionsTextEdit">
+      <item row="27" column="0" colspan="2">
+       <widget class="Line" name="line14">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>90</height>
+          <width>662</width>
+          <height>1</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Open Sans</family>
-          <pointsize>13</pointsize>
-         </font>
-        </property>
-        <property name="verticalScrollBarPolicy">
-         <enum>Qt::ScrollBarAlwaysOn</enum>
-        </property>
-        <property name="horizontalScrollBarPolicy">
-         <enum>Qt::ScrollBarAsNeeded</enum>
-        </property>
-        <property name="sizeAdjustPolicy">
-         <enum>QAbstractScrollArea::AdjustIgnored</enum>
-        </property>
-        <property name="tabChangesFocus">
-         <bool>true</bool>
-        </property>
-        <property name="lineWrapMode">
-         <enum>QTextEdit::NoWrap</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="27" column="0" colspan="2">
-       <widget class="Line" name="line13">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>1</width>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -979,15 +988,21 @@
       <item row="12" column="1">
        <widget class="QLineEdit" name="heightLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1001,7 +1016,7 @@
       <item row="30" column="0">
        <widget class="QLabel" name="reasonForReferralLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1009,7 +1024,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1029,15 +1050,21 @@
       <item row="26" column="1">
        <widget class="QLineEdit" name="doctorProviderNumberLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1051,14 +1078,20 @@
       <item row="9" column="0" colspan="2">
        <widget class="Line" name="line5">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -1082,14 +1115,20 @@
       <item row="1" column="0" colspan="2">
        <widget class="Line" name="line1">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -1121,7 +1160,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1141,7 +1186,7 @@
       <item row="32" column="0">
        <widget class="QLabel" name="requestDateLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1149,7 +1194,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1169,14 +1220,20 @@
       <item row="13" column="0" colspan="2">
        <widget class="Line" name="line7">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -1200,14 +1257,20 @@
       <item row="21" column="0" colspan="2">
        <widget class="Line" name="line11">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -1231,15 +1294,21 @@
       <item row="24" column="1">
        <widget class="QLineEdit" name="doctorFullNameLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1253,7 +1322,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="fullNameLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1261,7 +1330,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1281,7 +1356,7 @@
       <item row="12" column="0">
        <widget class="QLabel" name="heightLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1289,7 +1364,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1309,7 +1390,7 @@
       <item row="24" column="0">
        <widget class="QLabel" name="doctorFullNameLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1317,7 +1398,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1337,15 +1424,21 @@
       <item row="8" column="1">
        <widget class="QLineEdit" name="medicareNumberLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1359,15 +1452,21 @@
       <item row="32" column="1">
        <widget class="QDateEdit" name="requestDateDateEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1384,15 +1483,21 @@
       <item row="2" column="1">
        <widget class="QLineEdit" name="fullNameLineEdit">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1413,8 +1518,14 @@
         </property>
         <property name="minimumSize">
          <size>
-          <width>410</width>
-          <height>0</height>
+          <width>412</width>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1426,16 +1537,22 @@
        </widget>
       </item>
       <item row="31" column="0" colspan="2">
-       <widget class="Line" name="line15">
+       <widget class="Line" name="line16">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -1459,14 +1576,20 @@
       <item row="15" column="0" colspan="2">
        <widget class="Line" name="line8">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -1490,14 +1613,20 @@
       <item row="7" column="0" colspan="2">
        <widget class="Line" name="line4">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>1</width>
+          <width>662</width>
+          <height>1</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>662</width>
           <height>1</height>
          </size>
         </property>
@@ -1521,7 +1650,7 @@
       <item row="28" column="0">
        <widget class="QLabel" name="doctorPreferredContactLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1529,7 +1658,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1546,10 +1681,10 @@
         </property>
        </widget>
       </item>
-      <item row="20" column="0">
+      <item row="20" column="0" alignment="Qt::AlignLeft">
        <widget class="QLabel" name="currentConditionsLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1557,7 +1692,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>163</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>163</height>
          </size>
         </property>
         <property name="font">
@@ -1569,15 +1710,12 @@
         <property name="text">
          <string>Current Conditions</string>
         </property>
-        <property name="buddy">
-         <cstring>currentConditionsTextEdit</cstring>
-        </property>
        </widget>
       </item>
       <item row="16" column="0">
        <widget class="QLabel" name="creatineLabel">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -1585,7 +1723,13 @@
         <property name="minimumSize">
          <size>
           <width>230</width>
-          <height>0</height>
+          <height>29</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>29</height>
          </size>
         </property>
         <property name="font">
@@ -1599,6 +1743,235 @@
         </property>
         <property name="buddy">
          <cstring>creatineLineEdit</cstring>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2">
+       <widget class="QWidget" name="titleWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>670</width>
+          <height>160</height>
+         </size>
+        </property>
+        <layout class="QGridLayout" name="titleGridLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item row="0" column="1" rowspan="4">
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,0">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
+           <item>
+            <widget class="QComboBox" name="runModeComboBox">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>170</width>
+               <height>29</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>170</width>
+               <height>29</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Open Sans</family>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="frame">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="loadFilesButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>170</width>
+               <height>31</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>170</width>
+               <height>31</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Open Sans</family>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Load File</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="saveFilesButton">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>170</width>
+               <height>31</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>170</width>
+               <height>31</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Open Sans</family>
+               <pointsize>13</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Create Document</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="titleText">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="MinimumExpanding" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>10000</width>
+             <height>10000</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Open Sans</family>
+             <pointsize>20</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>DMMR Report Generator</string>
+           </property>
+           <property name="indent">
+            <number>10</number>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="subtitleText">
+           <property name="text">
+            <string>Load a file to Start</string>
+           </property>
+           <property name="margin">
+            <number>3</number>
+           </property>
+           <property name="indent">
+            <number>7</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="20" column="1">
+       <widget class="QTextEdit" name="currentConditionsTextEdit">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>412</width>
+          <height>163</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>412</width>
+          <height>163</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Open Sans</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Plain</enum>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAsNeeded</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustIgnored</enum>
         </property>
        </widget>
       </item>

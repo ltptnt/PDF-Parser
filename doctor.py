@@ -90,4 +90,6 @@ class Doctor:
         return self.request_time
 
     def get_reason_for_referral(self) -> str | None:
+        if self.reason_for_referral is None:
+            return "Polypharmacy"
         return self.reason_for_referral
