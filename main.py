@@ -19,7 +19,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(QIcon("resources/icon.png"))
         QFontDatabase.addApplicationFont("resources/OpenSans-Regular.ttf")
         QFontDatabase.addApplicationFont("resources/OpenSans-Light.ttf")
-        apply_stylesheet(app, theme="dark_blue.xml")
+        apply_stylesheet(app, theme="light_blue.xml")
         # set the button events
         self.ui.loadFilesButton.clicked.connect(self.loadFile)
         self.ui.saveFilesButton.clicked.connect(self.saveFile)
@@ -41,7 +41,7 @@ class MainWindow(QMainWindow):
             if child not in buttons and child != self.ui.titleText:
                 try:
                     child.setStyleSheet(styleSheet + child.styleSheet())
-                except:
+                except
                     pass
 
         # remove the border from the text edits and add custom border when focused
@@ -197,7 +197,7 @@ class MainWindow(QMainWindow):
                 self.settings["openPath"] = file.split("/", -1)[0]
                 self.addDoctor(file)
                 self.populateFields()
-        
+        # get path of current file and save the settings
         json.dump(self.settings, open('settings.json', 'w'))
 
     def saveFile(self) -> None:
