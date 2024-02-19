@@ -7,11 +7,14 @@ from main_window_ui import Ui_MainWindow
 from Doctor import Doctor
 from qt_material import apply_stylesheet
 import os
+import ctypes
 
 
 class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
+        myappid = 'LP.Apps.PDF-Parser.v1.0'
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
         # Create the main window
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
