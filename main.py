@@ -32,16 +32,20 @@ class MainWindow(QMainWindow):
         # set all the fonts to OpenSans Light
         buttons = [self.ui.loadFilesButton, self.ui.saveFilesButton]
         for button in buttons:
-            button.setStyleSheet("font-family: 'OpenSans Light'; font-size: 13px;" + button.styleSheet())
-        
-        self.ui.titleText.setStyleSheet("font-family: 'OpenSans'; font-size: 30px;" + self.ui.titleText.styleSheet())
+            button.setStyleSheet(
+                "font-family: 'OpenSans Light'; font-size: 13px;" + button.styleSheet()
+            )
+
+        self.ui.titleText.setStyleSheet(
+            "font-family: 'OpenSans'; font-size: 30px;" + self.ui.titleText.styleSheet()
+        )
         # set the font for all the widgets
         styleSheet = "font-family: 'OpenSans Light'; font-size: 18px; font-weight: 200;"
         for child in self.ui.centralwidget.children():
             if child not in buttons and child != self.ui.titleText:
                 try:
                     child.setStyleSheet(styleSheet + child.styleSheet())
-                except
+                except AttributeError:
                     pass
 
         # remove the border from the text edits and add custom border when focused
@@ -54,16 +58,21 @@ class MainWindow(QMainWindow):
 
         # Load the settings
         self.load_settings()
-    
 
     def load_settings(self) -> None:
         self.settings = {}
-        if os.path.exists('settings.json'):
-            with open('settings.json', 'r') as f:
+        if os.path.exists("settings.json"):
+            with open("settings.json", "r") as f:
                 self.settings = json.load(f)
-        if self.settings.get("openPath") is None or os.path.exists(self.settings.get("openPath")) is False:
+        if (
+            self.settings.get("openPath") is None
+            or os.path.exists(self.settings.get("openPath")) is False
+        ):
             self.settings["openPath"] = ""
-        if self.settings.get("savePath") is None or os.path.exists(self.settings.get("savePath")) is False:
+        if (
+            self.settings.get("savePath") is None
+            or os.path.exists(self.settings.get("savePath")) is False
+        ):
             self.settings["savePath"] = ""
 
     def _resize(self) -> None:
@@ -75,19 +84,22 @@ class MainWindow(QMainWindow):
             for child in self.ui.centralwidget.children():
                 try:
                     child.show()
-                except:
+                except AttributeError:
                     pass
         else:
             self.ui.loadFilesButton.setText("Load Files")
             self.ui.saveFilesButton.setText("Create Documents")
 
             # remove all the fields not in the title grid layout
-            titleWidgetChildren = [titleWidgetChild.objectName() for titleWidgetChild in self.ui.titleWidget.children()] + ["titleWidget", "gridLayout_3"]
+            titleWidgetChildren = [
+                titleWidgetChild.objectName()
+                for titleWidgetChild in self.ui.titleWidget.children()
+            ] + ["titleWidget", "gridLayout_3"]
             for child in self.ui.centralwidget.children():
                 if child.objectName() not in titleWidgetChildren:
                     try:
                         child.hide()
-                    except:
+                    except AttributeError:
                         pass
         _timer = QTimer()
         _timer.singleShot(30, self._resize)
@@ -95,9 +107,15 @@ class MainWindow(QMainWindow):
     def populateFields(self) -> None:
         # Set the Doctor's information
         self.ui.doctorFullNameLineEdit.setText(self.doctors[0].get_name())
-        self.ui.doctorProviderNumberLineEdit.setText(self.doctors[0].get_provider_number())
-        self.ui.doctorPreferredContactLineEdit.setText(self.doctors[0].get_pref_contact())
-        self.ui.reasonForReferralLineEdit.setText(self.doctors[0].get_reason_for_referral())
+        self.ui.doctorProviderNumberLineEdit.setText(
+            self.doctors[0].get_provider_number()
+        )
+        self.ui.doctorPreferredContactLineEdit.setText(
+            self.doctors[0].get_pref_contact()
+        )
+        self.ui.reasonForReferralLineEdit.setText(
+            self.doctors[0].get_reason_for_referral()
+        )
         self.ui.requestDateDateEdit.setDate(
             QDate.fromString(self.doctors[0].get_request_time(), "dd/MM/yyyy")
         )
@@ -138,7 +156,9 @@ class MainWindow(QMainWindow):
         self.doctors[0].set_name(self.ui.doctorFullNameLineEdit.text())
         self.doctors[0].set_provider_number(self.ui.doctorProviderNumberLineEdit.text())
         self.doctors[0].set_pref_contact(self.ui.doctorPreferredContactLineEdit.text())
-        self.doctors[0].set_reason_for_referral(self.ui.reasonForReferralLineEdit.text())
+        self.doctors[0].set_reason_for_referral(
+            self.ui.reasonForReferralLineEdit.text()
+        )
         if (
             self.doctors[0].get_request_time() is None
             and self.ui.requestDateDateEdit.date().toString("dd/MM/yyyy")
@@ -183,7 +203,9 @@ class MainWindow(QMainWindow):
     def loadFile(self) -> None:
         options = QFileDialog.Options()
         if self.ui.runModeComboBox.currentText() == "Bulk":
-            files = QFileDialog.getExistingDirectory(self, "Open Folder", self.settings["openPath"], options=options)
+            files = QFileDialog.getExistingDirectory(
+                self, "Open Folder", self.settings["openPath"], options=options
+            )
             if files:
                 self.settings["openPath"] = files
                 # get all the files in the directory
@@ -192,38 +214,58 @@ class MainWindow(QMainWindow):
                     if file.endswith(".pdf"):
                         self.addDoctor(file)
         else:
-            file, _ = QFileDialog.getOpenFileName(self, "Open File", self.settings["openPath"], "PDF Files (*.pdf)", options=options)
+            file, _ = QFileDialog.getOpenFileName(
+                self,
+                "Open File",
+                self.settings["openPath"],
+                "PDF Files (*.pdf)",
+                options=options,
+            )
             if file:
                 self.settings["openPath"] = file.split("/", -1)[0]
                 self.addDoctor(file)
                 self.populateFields()
         # get path of current file and save the settings
-        json.dump(self.settings, open('settings.json', 'w'))
+        json.dump(self.settings, open("settings.json", "w"))
 
     def saveFile(self) -> None:
         options = QFileDialog.Options()
         if self.ui.runModeComboBox.currentText() == "Bulk":
-            saveLocation = QFileDialog.getExistingDirectory(self, "Save Folder", self.settings["savePath"], options=options)
+            saveLocation = QFileDialog.getExistingDirectory(
+                self, "Save Folder", self.settings["savePath"], options=options
+            )
             if saveLocation:
                 self.settings["savePath"] = saveLocation
                 for doctor in self.doctors:
                     document = create_document(doctor)
                     # add checks to prevent overwriting files
-                    if os.path.exists(f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}.docx"):
+                    if os.path.exists(
+                        f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}.docx"
+                    ):
                         i = 1
-                        while os.path.exists(f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"):
+                        while os.path.exists(
+                            f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"
+                        ):
                             i += 1
-                        document.save(f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx")
+                        document.save(
+                            f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"
+                        )
 
         else:
-            saveLocation, _ = QFileDialog.getSaveFileName(self, "Save File", self.settings["savePath"], "Word Document (*.docx)", options=options)
+            saveLocation, _ = QFileDialog.getSaveFileName(
+                self,
+                "Save File",
+                self.settings["savePath"],
+                "Word Document (*.docx)",
+                options=options,
+            )
             if saveLocation:
                 self.settings["savePath"] = saveLocation.split("/", -1)[0]
                 self.updateData()
                 document = create_document(self.doctors[0])
                 document.save(saveLocation)
-        
-        json.dump(self.settings, open('settings.json', 'w'))
+        json.dump(self.settings, open("settings.json", "w"))
+
 
 def except_hook(cls, exception, traceback):
     sys.__excepthook__(cls, exception, traceback)
@@ -237,8 +279,10 @@ def except_hook(cls, exception, traceback):
     # close the application on close
     app.quit()
 
+
 if __name__ == "__main__":
     import sys
+
     app = QApplication(sys.argv)
     mainWindow = MainWindow()
     mainWindow.show()
