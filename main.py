@@ -1,13 +1,24 @@
 import json
+import os
+import sys
+import ctypes
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from PySide6.QtCore import QDate, QTimer
 from PySide6.QtGui import QIcon, QFontDatabase
+from qt_material import apply_stylesheet
+
+# Fix the import error
+PATH = os.path.dirname(__file__)
+sys.path.append(os.path.join(PATH))
+
+# import the classes from the other files
 from Parsing import create_document, parse
 from main_window_ui import Ui_MainWindow
 from Doctor import Doctor
-from qt_material import apply_stylesheet
-import os
-import ctypes
+
+
+
+# fix cannot import name 'Patient' from 'Patient' error using os.chdir
 
 
 class MainWindow(QMainWindow):
@@ -19,10 +30,10 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowTitle("DMMR Report")
-        self.setWindowIcon(QIcon("resources/icon.png"))
-        QFontDatabase.addApplicationFont("resources/OpenSans-Regular.ttf")
-        QFontDatabase.addApplicationFont("resources/OpenSans-Light.ttf")
-        apply_stylesheet(app, theme="light_blue.xml")
+        self.setWindowIcon(QIcon(PATH + "/resources/icon.png"))
+        QFontDatabase.addApplicationFont(PATH + "resources/OpenSans-Regular.ttf")
+        QFontDatabase.addApplicationFont(PATH + "resources/OpenSans-Light.ttf")
+        apply_stylesheet(self, theme="light_blue.xml")
         # set the button events
         self.ui.loadFilesButton.clicked.connect(self.loadFile)
         self.ui.saveFilesButton.clicked.connect(self.saveFile)
@@ -64,8 +75,8 @@ class MainWindow(QMainWindow):
 
     def load_settings(self) -> None:
         self.settings = {}
-        if os.path.exists("settings.json"):
-            with open("settings.json", "r") as f:
+        if os.path.exists(PATH + "/settings.json"):
+            with open(PATH + "/settings.json", "r", encoding="utf-8") as f:
                 self.settings = json.load(f)
         if (
             self.settings.get("openPath") is None
@@ -225,11 +236,13 @@ class MainWindow(QMainWindow):
                 options=options,
             )
             if file:
-                self.settings["openPath"] = file.split("/", -1)[0]
+                self.settings["openPath"] = file.rsplit("/", 1)[0]
                 self.addDoctor(file)
                 self.populateFields()
         # get path of current file and save the settings
-        json.dump(self.settings, open("settings.json", "w"))
+                
+        with open(PATH + "/settings.json", "w", encoding="utf-8") as f:
+            json.dump(self.settings, f)
 
     def saveFile(self) -> None:
         options = QFileDialog.Options()
@@ -246,12 +259,13 @@ class MainWindow(QMainWindow):
                         f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}.docx"
                     ):
                         i = 1
-                        while os.path.exists(
-                            f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"
-                        ):
+                        while os.path.exists(f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"):
                             i += 1
+                        document.save(f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx")
+
+                    else:
                         document.save(
-                            f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"
+                            f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}.docx"
                         )
 
         else:
@@ -263,11 +277,12 @@ class MainWindow(QMainWindow):
                 options=options,
             )
             if saveLocation:
-                self.settings["savePath"] = saveLocation.split("/", -1)[0]
+                self.settings["savePath"] = saveLocation.rsplit("/", 1)[0]
                 self.updateData()
                 document = create_document(self.doctors[0])
                 document.save(saveLocation)
-        json.dump(self.settings, open("settings.json", "w"))
+        with open(PATH + "/settings.json", "w", encoding="utf-8") as f:
+            json.dump(self.settings, f)
 
 
 def except_hook(cls, exception, traceback):
@@ -284,8 +299,6 @@ def except_hook(cls, exception, traceback):
 
 
 if __name__ == "__main__":
-    import sys
-
     app = QApplication(sys.argv)
     mainWindow = MainWindow()
     mainWindow.show()

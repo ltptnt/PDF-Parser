@@ -3,7 +3,9 @@ from datetime import date
 from Doctor import Doctor
 from Patient import Patient
 from docx import Document
+import os
 
+PATH = os.path.dirname(__file__)
 
 # Read in the two example files
 def parse(file_path: str) -> Doctor:
@@ -368,7 +370,7 @@ def template_2(pdf) -> Doctor:
 
 
 def create_document(doctor: Doctor):
-    document = Document("resources/Blank.docx")
+    document = Document(PATH + "/resources/Blank.docx")
     if doctor is None:
         return document
 
