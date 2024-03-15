@@ -272,7 +272,7 @@ class MainWindow(QMainWindow):
             saveLocation, _ = QFileDialog.getSaveFileName(
                 self,
                 "Save File",
-                self.settings["savePath"],
+                self.settings["savePath"] + "/DMMR REPORT - " + self.doctors[0].get_patient().get_name() + ".docx",
                 "Word Document (*.docx)",
                 options=options,
             )
