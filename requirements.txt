@@ -1,4 +1,0 @@
-PySide6
-pdfplumber
-python-docx
-qt-material
