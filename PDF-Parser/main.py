@@ -17,61 +17,68 @@ from main_window_ui import Ui_MainWindow
 from Doctor import Doctor
 
 
-
-# fix cannot import name 'Patient' from 'Patient' error using os.chdir
-
-
 class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
-        myappid = 'LP.Apps.PDF-Parser.v1.0'
+        # Set the app id for windows and set the icon
+        myappid = "LP.Apps.PDF-Parser.v1.0"
         ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+
         # Create the main window
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        self.setWindowTitle("DMMR Report")
+        # set the window title and icon
+        self.setWindowTitle("DMMR Report Generator")
         self.setWindowIcon(QIcon(PATH + "/resources/icon.png"))
-        QFontDatabase.addApplicationFont(PATH + "resources/OpenSans-Regular.ttf")
-        QFontDatabase.addApplicationFont(PATH + "resources/OpenSans-Light.ttf")
-        apply_stylesheet(self, theme="light_blue.xml")
-        # set the button events
+
+        # format the application
+        self.formatApp()
+
+        # add the button events
         self.ui.loadFilesButton.clicked.connect(self.loadFile)
         self.ui.saveFilesButton.clicked.connect(self.saveFile)
 
-        # set the dropdown menu options
+        # add the dropdown menu options
         self.ui.runModeComboBox.addItems(["Single", "Bulk"])
         self.ui.runModeComboBox.currentIndexChanged.connect(self.runType)
 
-        # fix formatting problems
-        # set all the fonts to OpenSans Light
-        buttons = [self.ui.loadFilesButton, self.ui.saveFilesButton]
-        for button in buttons:
-            button.setStyleSheet(
-                "font-family: 'OpenSans Light'; font-size: 13px;" + button.styleSheet()
-            )
+        # init doctor to None
+        self.doctors = []
 
+        # Load the application settings
+        self.load_settings()
+
+    def formatApp(self) -> None:
+        # set the fonts and styles
+        QFontDatabase.addApplicationFont(PATH + "resources/OpenSans-Regular.ttf")
+        QFontDatabase.addApplicationFont(PATH + "resources/OpenSans-Light.ttf")
+        apply_stylesheet(self, theme="light_blue.xml", extra={"density-scale": "-2.0"})
+
+        # ---- fix formatting problems ------
+        # set all the fonts to OpenSans Light
+        self.ui.loadFilesButton.setStyleSheet(
+            "font-family: 'OpenSans Light'; font-size: 13px;" + self.ui.loadFilesButton.styleSheet()
+        )
+        self.ui.saveFilesButton.setStyleSheet(
+            "font-family: 'OpenSans Light'; font-size: 13px;" + self.ui.saveFilesButton.styleSheet()
+        )
+        # set the title font to OpenSans
         self.ui.titleText.setStyleSheet(
             "font-family: 'OpenSans'; font-size: 30px;" + self.ui.titleText.styleSheet()
         )
         # set the font for all the widgets
-        styleSheet = "font-family: 'OpenSans Light'; font-size: 18px; font-weight: 200;"
         for child in self.ui.centralwidget.children():
-            if child not in buttons and child != self.ui.titleText:
-                try:
-                    child.setStyleSheet(styleSheet + child.styleSheet())
-                except AttributeError:
-                    pass
-
-        # remove the border from the text edits and add custom border when focused
-        textEdits = [self.ui.currentConditionsTextEdit, self.ui.medicationsTextEdit]
-        for textEdit in textEdits:
-            textEdit.focused = False
-
-        # Set doctor to None
-        self.doctors = []
-
-        # Load the settings
-        self.load_settings()
+            if "button" not in child.objectName() and hasattr(child, "setStyleSheet"):
+                child.setStyleSheet(
+                    "font-family: 'OpenSans Light'; font-size: 16px; font-weight: 200;"
+                    + child.styleSheet()
+                )
+        # Remove the indentation on the line and text edits
+        for child in self.ui.centralwidget.children():
+            if hasattr(child, "setStyleSheet") and ("LineEdit" in child.objectName() or "TextEdit" in child.objectName() or "DateEdit" in child.objectName()):
+                child.setStyleSheet(
+                    "padding: 2px; " + child.styleSheet()
+                )
 
     def load_settings(self) -> None:
         self.settings = {}
@@ -96,10 +103,8 @@ class MainWindow(QMainWindow):
         if self.ui.runModeComboBox.currentText() == "Single":
             self.ui.saveFilesButton.setText("Create Document")
             for child in self.ui.centralwidget.children():
-                try:
+                if hasattr(child, "show"):
                     child.show()
-                except AttributeError:
-                    pass
         else:
             self.ui.loadFilesButton.setText("Load Files")
             self.ui.saveFilesButton.setText("Create Documents")
@@ -110,11 +115,8 @@ class MainWindow(QMainWindow):
                 for titleWidgetChild in self.ui.titleWidget.children()
             ] + ["titleWidget", "gridLayout_3"]
             for child in self.ui.centralwidget.children():
-                if child.objectName() not in titleWidgetChildren:
-                    try:
-                        child.hide()
-                    except AttributeError:
-                        pass
+                if child.objectName() not in titleWidgetChildren and hasattr(child, "hide"):
+                    child.hide()
         _timer = QTimer()
         _timer.singleShot(30, self._resize)
 
@@ -240,7 +242,7 @@ class MainWindow(QMainWindow):
                 self.addDoctor(file)
                 self.populateFields()
         # get path of current file and save the settings
-                
+
         with open(PATH + "/settings.json", "w", encoding="utf-8") as f:
             json.dump(self.settings, f)
 
@@ -259,9 +261,13 @@ class MainWindow(QMainWindow):
                         f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}.docx"
                     ):
                         i = 1
-                        while os.path.exists(f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"):
+                        while os.path.exists(
+                            f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"
+                        ):
                             i += 1
-                        document.save(f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx")
+                        document.save(
+                            f"{saveLocation}/DMMR REPORT - {doctor.get_patient().get_name()}({i}).docx"
+                        )
 
                     else:
                         document.save(
@@ -269,10 +275,15 @@ class MainWindow(QMainWindow):
                         )
 
         else:
+            if len(self.doctors) == 0:
+                return
             saveLocation, _ = QFileDialog.getSaveFileName(
                 self,
                 "Save File",
-                self.settings["savePath"] + "/DMMR REPORT - " + self.doctors[0].get_patient().get_name() + ".docx",
+                self.settings["savePath"]
+                + "/DMMR REPORT - "
+                + self.doctors[0].get_patient().get_name()
+                + ".docx",
                 "Word Document (*.docx)",
                 options=options,
             )
