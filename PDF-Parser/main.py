@@ -3,13 +3,16 @@ import os
 import sys
 import ctypes
 from PySide6.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
-from PySide6.QtCore import QDate, QTimer
+from PySide6.QtCore import QDate, QTimer, Qt
 from PySide6.QtGui import QIcon, QFontDatabase
 from qt_material import apply_stylesheet
 
 # Fix the import error
 PATH = os.path.dirname(__file__)
 sys.path.append(os.path.join(PATH))
+# set the os environment variable to scale the application.
+# os.environ["QT_SCALE_FACTOR"] = "0.8"
+
 
 # import the classes from the other files
 from Parsing import create_document, parse
@@ -46,7 +49,7 @@ class MainWindow(QMainWindow):
         self.doctors = []
 
         # Load the application settings
-        self.load_settings()
+        self.loadSettings()
 
     def formatApp(self) -> None:
         # set the fonts and styles
@@ -80,7 +83,7 @@ class MainWindow(QMainWindow):
                     "padding: 2px; " + child.styleSheet()
                 )
 
-    def load_settings(self) -> None:
+    def loadSettings(self) -> None:
         self.settings = {}
         if os.path.exists(PATH + "/settings.json"):
             with open(PATH + "/settings.json", "r", encoding="utf-8") as f:
@@ -101,6 +104,7 @@ class MainWindow(QMainWindow):
 
     def runType(self) -> None:
         if self.ui.runModeComboBox.currentText() == "Single":
+            self.ui.loadFilesButton.setText("Load File")
             self.ui.saveFilesButton.setText("Create Document")
             for child in self.ui.centralwidget.children():
                 if hasattr(child, "show"):
